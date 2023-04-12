@@ -1,0 +1,30 @@
+.Navbar {
+	display: flex;
+	align-items: center;
+	padding: 2px 2px;
+	width: 100%;
+	justify-content: space-between;
+	border: 1px solid $primary-color;
+	background-color: $background;
+
+	.logo {
+		width: 60%;
+		img {
+			width: 152px;
+			height: 40px;
+		}
+	}
+
+	.icons {
+		svg {
+			width: 30px;
+			height: 30px;
+		}
+		width: 40%;
+		color: $primary-color;
+		display: flex;
+		justify-content: space-evenly;
+		gap: 10px;
+		cursor: pointer;
+	}
+}
