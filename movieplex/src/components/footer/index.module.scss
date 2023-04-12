@@ -1,2 +1,35 @@
 .Footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  .logo {
+    display: flex;
+
+    padding: 3px;
+    width: 119px;
+    height: 32px;
+  }
+  .text {
+    align-self: flex-start;
+    padding-left: 10px;
+    p {
+      padding-top: 8px;
+      margin: 0;
+      color: $secondary-color;
+    }
+  }
+  .rights {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    background-color: $primary-color;
+    p {
+      margin: 0;
+      font-weight: bold;
+    }
+  }
 }
