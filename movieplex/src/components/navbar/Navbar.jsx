@@ -5,21 +5,18 @@ import { AiOutlineUserDelete } from "react-icons/ai";
 import { RxHamburgerMenu } from "react-icons/rx";
 
 const Navbar = () => {
-	return (
-		<div className={styles.Navbar}>
-			<div className={styles.logo}>
-				<img
-					src={logo}
-					alt="logo"
-				/>
-			</div>
-			<div className={styles.icons}>
-				<RxHamburgerMenu />
-				<BiSearchAlt />
-				<AiOutlineUserDelete />
-			</div>
-		</div>
-	);
+  return (
+    <div className={styles.Navbar}>
+      <div className={styles.logo}>
+        <img src={logo} alt="logo" />
+      </div>
+      <div className={styles.icons}>
+        <RxHamburgerMenu />
+        <BiSearchAlt />
+        <AiOutlineUserDelete className={styles.userIcon} />
+      </div>
+    </div>
+  );
 };
 
 export default Navbar;

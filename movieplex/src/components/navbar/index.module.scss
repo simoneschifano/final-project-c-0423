@@ -1,9 +1,10 @@
 .Navbar {
   display: flex;
   align-items: center;
-  padding: 15px 5px;
+  padding: 15px 10px;
   width: 100%;
   justify-content: space-between;
+  box-sizing: border-box;
 
   .logo {
     width: 60%;
@@ -24,5 +25,8 @@
     justify-content: space-evenly;
     gap: 10px;
     cursor: pointer;
+    .userIcon {
+      margin-left: -10px;
+    }
   }
 }
