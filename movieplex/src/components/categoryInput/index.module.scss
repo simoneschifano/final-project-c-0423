@@ -1,0 +1,25 @@
+.wrapper {
+  padding: 10px;
+
+  .title {
+    color: $primary-color;
+    margin: 0;
+    padding-bottom: 10px;
+  }
+  .select {
+    width: calc(100% - 16px);
+    padding: 8px;
+    border-radius: $border;
+    //TO SOLVE
+    .option {
+      border: 2px solid red;
+      background-color: $background;
+      color: $secondary-color;
+      border-radius: 18px;
+      cursor: pointer;
+      &:hover {
+        color: $tertiary-color;
+      }
+    }
+  }
+}

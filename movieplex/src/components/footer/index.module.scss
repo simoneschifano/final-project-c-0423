@@ -1,8 +1,10 @@
 .Footer {
+  padding-top: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  background-color: $footer-color;
 
   .logo {
     display: flex;
