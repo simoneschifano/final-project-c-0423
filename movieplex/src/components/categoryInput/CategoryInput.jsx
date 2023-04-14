@@ -9,9 +9,7 @@ const CategoryInput = ({ setCategoryId }) => {
   };
 
   useEffect(() => {
-    GET(
-      "https://api.themoviedb.org/3/genre/movie/list?api_key=3952ada8611fe5cc504d6b498fdac98d"
-    ).then((data) => setCategories(data.genres));
+    GET("genre/movie/list").then((data) => setCategories(data.genres));
   }, []);
 
   return (
