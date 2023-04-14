@@ -1,32 +1,58 @@
 .Navbar {
-  display: flex;
-  align-items: center;
-  padding: 15px 10px;
-  width: 100%;
-  justify-content: space-between;
-  box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	padding: 15px 10px;
+	width: 100%;
+	justify-content: space-between;
+	box-sizing: border-box;
+	color: $primary-color;
 
-  .logo {
-    width: 60%;
-    img {
-      width: 152px;
-      height: 40px;
-    }
-  }
+	.logo {
+		width: 60%;
+		img {
+			width: 152px;
+			height: 40px;
+		}
+	}
+}
 
-  .icons {
-    svg {
-      width: 30px;
-      height: 30px;
-    }
-    width: 40%;
-    color: $primary-color;
-    display: flex;
-    justify-content: space-evenly;
-    gap: 10px;
-    cursor: pointer;
-    .userIcon {
-      margin-left: -10px;
-    }
-  }
+@media screen and (max-width: 500px) {
+	.icons_mobile {
+		svg {
+			width: 30px;
+			height: 30px;
+		}
+		width: 40%;
+		color: $primary-color;
+		display: flex;
+		justify-content: space-evenly;
+		gap: 10px;
+		cursor: pointer;
+		.userIcon {
+			margin-left: -10px;
+		}
+	}
+
+	.links_desktop {
+		display: none;
+	}
+	.login_desktop {
+		display: none;
+	}
+}
+
+@media screen and (min-width: 500px) {
+	.icons_mobile {
+		display: none;
+	}
+
+	.links_desktop {
+		display: block;
+	}
+	.login_desktop {
+		.Link {
+			text-decoration: none;
+			color: inherit;
+		}
+	}
 }

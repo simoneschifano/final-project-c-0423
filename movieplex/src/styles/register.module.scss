@@ -1,4 +1,4 @@
-.LoginPage {
+.RegisterPage {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -7,14 +7,24 @@
 	color: $secondary-color;
 	height: 400px;
 
-	.loginForm {
-		h4,
-		p {
+	.registerForm {
+		h4 {
 			margin: 0 0 10px;
 		}
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		.anagrafe {
+			width: 250px;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			gap: 5px;
+			.textInput {
+				width: 120px;
+				margin-bottom: 10px;
+			}
+		}
 		.textInput {
 			width: 250px;
 			margin-bottom: 10px;

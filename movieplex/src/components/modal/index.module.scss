@@ -1,0 +1,15 @@
+.modalWrap {
+	position: absolute;
+	top: 64px;
+	right: -400px;
+	width: 350px;
+	height: calc(100vh - 64px);
+	background-color: #fff;
+	border-right: 1px solid #ccc;
+	transition: all 0.35s ease;
+	display: block;
+}
+
+.show {
+	right: 0px;
+}

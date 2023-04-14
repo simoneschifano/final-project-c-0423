@@ -7,7 +7,8 @@ import {
 	createRoutesFromElements,
 } from "react-router-dom";
 import Home from "./pages/Home";
-import Boh from "./pages/boh";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 import Layout from "./components/layout";
 import "./index.css";
 
@@ -19,8 +20,12 @@ const router = createBrowserRouter(
 				element={<Home />}
 			/>
 			<Route
-				path="/boh"
-				element={<Boh />}
+				path="/login"
+				element={<Login />}
+			/>
+			<Route
+				path="/register"
+				element={<Register />}
 			/>
 		</Route>,
 	),
