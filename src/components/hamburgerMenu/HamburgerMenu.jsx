@@ -12,7 +12,9 @@ const HamburgerMenu = () => {
         <h3>Home</h3>
       </Link>
       <h3>Prossime Uscite</h3>
-      <h3>Card e Promo</h3>
+      <Link to="/cardPromo" onClick={onHandleCloseModal}>
+        <h3>Card e Promo</h3>
+      </Link>
       <img className={styles.img} src={popcornIcon} alt="popcorn" />
     </div>
   );

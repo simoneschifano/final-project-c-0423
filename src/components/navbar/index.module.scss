@@ -6,14 +6,21 @@
   justify-content: space-between;
   box-sizing: border-box;
   color: $primary-color;
+  background: $background;
+  z-index: 1;
 
   .logo {
     width: 60%;
+    cursor: pointer;
     img {
       width: 152px;
       height: 40px;
     }
   }
+}
+
+.fixed {
+  position: fixed;
 }
 
 @media screen and (max-width: 500px) {

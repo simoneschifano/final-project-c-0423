@@ -8,18 +8,21 @@ export const mainReducer = (state, action) => {
       };
 
     case "SET_MODAL_CONTENT_USER":
+      document.body.classList.add("noscroll");
       return {
         ...state,
         iconPush: { search: false, burger: false, user: true },
         modalContent: action.payload,
       };
     case "SET_MODAL_CONTENT_BURGER":
+      document.body.classList.add("noscroll");
       return {
         ...state,
         iconPush: { search: false, user: false, burger: true },
         modalContent: action.payload,
       };
     case "SET_MODAL_CONTENT_SEARCH":
+      document.body.classList.add("noscroll");
       return {
         ...state,
         iconPush: { search: true, user: false, burger: false },
@@ -27,9 +30,15 @@ export const mainReducer = (state, action) => {
       };
 
     case "SET_MODAL_CLOSE":
+      document.body.classList.remove("noscroll");
       return {
         ...state,
-        visible: !state.visible,
+        visible: false,
+      };
+    case "SET_MODAL_OPEN":
+      return {
+        ...state,
+        visible: true,
       };
   }
 };

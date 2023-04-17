@@ -1,0 +1,51 @@
+.Carousel {
+  .Carousel__container {
+    height: 380px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    overflow: hidden;
+    justify-content: center;
+  }
+
+  .prevImg,
+  .nextImg {
+    width: 200px;
+    height: 300px;
+    transform: scale(0.7);
+    opacity: 0.5;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: opacity 0.5s ease-in-out;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .currImg {
+    width: 200px;
+    height: 300px;
+    border-radius: 10px;
+    transform: scale(1);
+    cursor: pointer;
+  }
+
+  // .currentSlide{
+  //     transform: scale(1);
+  //     border-radius: 10px;
+  // }
+
+  // .notCurrentSlide{
+  //     margin: 0 -15px;
+  //     transform: scale(0.7);
+  //     opacity: 0.5;
+  //     border-radius: 10px;
+  // }
+
+  .btn__container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-top: 10px;
+  }
+}

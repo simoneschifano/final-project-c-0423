@@ -1,0 +1,166 @@
+body {
+	font-family: "Netflix Sans";
+	font-weight: 400;
+	font-display: optional;
+	src: url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Rg.woff2)
+			format("woff2"),
+		url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Rg.woff)
+			format("woff");
+	color: goldenrod;
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+}
+
+.header {
+	margin: 0;
+	padding-left: 15px;
+	background-color: black;
+	height: 90px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.go-back {
+	text-decoration: none;
+	color: inherit;
+	font-size: 28px;
+}
+
+.who-are-we {
+	text-decoration: none;
+	font-size: 28px;
+	color: goldenrod;
+}
+
+.title {
+	align-self: flex-start;
+	font-size: 26px;
+}
+
+.showCard {
+	display: flex;
+	gap: 30px;
+	align-self: center;
+}
+.showCard::after {
+	background: linear-gradient(
+		90deg,
+		#181818 10%,
+		hsla(0, 0%, 9%, 0.98) 20%,
+		hsla(0, 0%, 9%, 0.98) 25%,
+		hsla(0, 0%, 9%, 0.95) 35%,
+		hsla(0, 0%, 9%, 0.94) 40%,
+		hsla(0, 0%, 9%, 0.92) 45%,
+		hsla(0, 0%, 9%, 0.9) 50%,
+		hsla(0, 0%, 9%, 0.87) 55%,
+		hsla(0, 0%, 9%, 0.82) 60%,
+		hsla(0, 0%, 9%, 0.75) 65%,
+		hsla(0, 0%, 9%, 0.63) 70%,
+		hsla(0, 0%, 9%, 0.45) 75%,
+		hsla(0, 0%, 9%, 0.27) 80%,
+		hsla(0, 0%, 9%, 0.15) 85%,
+		hsla(0, 0%, 9%, 0.08) 90%,
+		hsla(0, 0%, 9%, 0.03) 95%,
+		hsla(0, 0%, 9%, 0)
+	);
+	content: "";
+	height: 88.2%;
+	left: 0;
+	top: 90px;
+	position: absolute;
+	width: 100%;
+}
+
+.media {
+	background-position: 50%;
+	background-repeat: no-repeat;
+	background-size: contain;
+	height: fit-content;
+	max-height: 635px;
+	position: absolute;
+	left: 25%;
+	width: 75%;
+}
+
+.img-desc {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	max-width: 800px;
+	min-width: 500px;
+	padding: 16px 32px 64px 0;
+	position: relative;
+	top: 220px;
+	left: 30px;
+	width: 35%;
+	z-index: 2;
+}
+
+:root {
+	--star-size: 20px;
+	--star-color: #fff;
+	--star-background: #fc0;
+}
+
+.valutazione {
+	display: flex;
+	gap: 5px;
+}
+.valutazione span {
+	font-size: 14px;
+	color: white;
+}
+
+.Stars {
+	--percent: calc(var(--rating) / 5 * 100%);
+	display: inline-block;
+	font-size: var(--star-size);
+	font-family: Times;
+	line-height: 1;
+}
+
+.Stars::before {
+	content: "★★★★★";
+	letter-spacing: 2px;
+	background: linear-gradient(
+		90deg,
+		var(--star-background) var(--percent),
+		var(--star-color) var(--percent)
+	);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.votes_count {
+	font-size: 14px;
+	margin: 0;
+	color: white;
+}
+
+.description {
+	margin: 0;
+	display: flex;
+	flex-grow: 1;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.footer {
+	margin: 0;
+	padding-left: 15px;
+	background-color: black;
+	height: 50px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+
+.footer-text {
+	text-decoration: none;
+	color: inherit;
+}

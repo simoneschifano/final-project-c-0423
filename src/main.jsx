@@ -10,8 +10,12 @@ import GlobalState from "./pages/GlobalState";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import MovieDetails from "./pages/MovieDetail";
+import MovieBooking from "./pages/MovieBooking";
+import TicketBuy from "./pages/TicketBuy";
 import Layout from "./components/layout";
 import "./index.css";
+import CardPromo from "./pages/CardPromo";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -19,6 +23,10 @@ const router = createBrowserRouter(
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/movie/:id" element={<MovieDetails />} />
+      <Route path="/ticket/:id/booking" element={<MovieBooking />} />
+      <Route path="/ticket/:id/payment" element={<TicketBuy />} />
+      <Route path="/cardPromo" element={<CardPromo />} />
     </Route>
   )
 );

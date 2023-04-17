@@ -5,6 +5,9 @@
   align-items: center;
   gap: 10px;
   background-color: $footer-color;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 
   .logo {
     display: flex;
