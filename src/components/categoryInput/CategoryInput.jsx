@@ -1,15 +1,20 @@
 import styles from "./index.module.scss";
-import { useState, useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
 import { GET } from "../../utils/http";
+import { Context } from "../../store/state";
 
 const CategoryInput = ({ setCategoryId }) => {
   const [categories, setCategories] = useState([]);
   const onHandleOptionValue = (e) => {
     setCategoryId(() => e.target.value);
   };
+  const { state, dispatch } = useContext(Context);
 
   useEffect(() => {
-    GET("genre/movie/list").then((data) => setCategories(data.genres));
+    GET("genre/movie/list").then((data) => {
+      const genreData = data.genres;
+      dispatch({ type: "SET_GENRE_LIST", payload: genreData });
+    });
   }, []);
 
   return (
@@ -23,7 +28,12 @@ const CategoryInput = ({ setCategoryId }) => {
       >
         <option value="">Seleziona la categoria</option>
 
-        {categories.map((genre) => (
+        {/* {categories.map((genre) => (
+          <option className={styles.option} value={genre.id} key={genre.id}>
+            {genre.name}
+          </option>
+        ))} */}
+        {state.genreList.map((genre) => (
           <option className={styles.option} value={genre.id} key={genre.id}>
             {genre.name}
           </option>

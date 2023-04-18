@@ -6,7 +6,12 @@ export const mainReducer = (state, action) => {
         ...state,
         movieListData: action.payload,
       };
-
+    //!Aggiunto
+    case "SET_GENRE_LIST":
+      return {
+        ...state,
+        genreList: action.payload,
+      };
     case "SET_MODAL_CONTENT_USER":
       document.body.classList.add("noscroll");
       return {

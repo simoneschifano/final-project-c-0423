@@ -33,7 +33,7 @@ const SearchModal = () => {
         {submitMovieName !== "" &&
           filterMovies.length !== 0 &&
           filterMovies.map((movie) => <Card data={movie} key={movie.id} />)}
-      </div>{" "}
+      </div>
     </div>
   );
 };

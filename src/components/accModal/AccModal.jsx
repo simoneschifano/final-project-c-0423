@@ -19,7 +19,11 @@ const AccModal = () => {
       {localStorage.getItem("auth") ? (
         <div className={styles.yes_auth}>
           <div className={styles.accInfo}>
-            <img src="" alt="foto profilo" />
+            <img
+              className={styles.userImg}
+              src="https://robohash.org/Erica"
+              alt="foto profilo"
+            />
             {/* <span>{user?.username}</span> */}
             <span>username</span>
           </div>
@@ -28,8 +32,8 @@ const AccModal = () => {
             <li>I tuoi biglietti</li>
             <li>Le tue Card e promo</li>
             <li>Modifica la password</li>
+            <p onClick={onHandleLogout}>Esci</p>
           </ul>
-          <p onClick={onHandleLogout}>Esci</p>
         </div>
       ) : (
         <div className={styles.no_auth}>

@@ -19,6 +19,9 @@
     left: 5%;
     z-index: 1;
     cursor: pointer;
+    &:hover {
+      transform: scale(1.2);
+    }
   }
   .logo {
     position: absolute;

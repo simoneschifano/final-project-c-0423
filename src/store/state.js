@@ -4,6 +4,8 @@ export const Context = createContext({});
 
 export const initialState = {
   movieListData: [],
+  //! aggiunto
+  genreList: [],
   iconPush: {
     burger: false,
     search: false,
