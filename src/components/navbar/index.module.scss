@@ -54,7 +54,12 @@
   }
 
   .links_desktop {
-    display: block;
+    display: flex;
+    cursor: pointer;
+    .Link {
+      text-decoration: none;
+      color: inherit;
+    }
   }
   .login_desktop {
     .Link {

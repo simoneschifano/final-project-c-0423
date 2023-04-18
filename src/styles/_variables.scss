@@ -12,3 +12,29 @@ $border: 18px;
 
 //font
 $roboto: "Roboto", sans-serif;
+
+//button mixins
+@mixin def-button {
+  // font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  width: 40%;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: $secondary-color;
+  border: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.72);
+  cursor: pointer;
+  transition: all 0.35s;
+  &:hover {
+    background-color: $tertiary-color;
+  }
+}
+
+@mixin def-input($width) {
+  font-family: "Roboto", sans-serif;
+  border-radius: 18px;
+  outline: none;
+  width: $width;
+  padding: 8px;
+  outline: none;
+}

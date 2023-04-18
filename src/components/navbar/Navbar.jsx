@@ -13,17 +13,14 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const userMenu = () => {
-    // dispatch({ type: "SET_MODAL_CLOSE" });
     dispatch({ type: "SET_MODAL_OPEN" });
     dispatch({ type: "SET_MODAL_CONTENT_USER" });
   };
   const burgerMenu = () => {
-    // dispatch({ type: "SET_MODAL_CLOSE" });
     dispatch({ type: "SET_MODAL_OPEN" });
     dispatch({ type: "SET_MODAL_CONTENT_BURGER" });
   };
   const searchMenu = () => {
-    // dispatch({ type: "SET_MODAL_CLOSE" });
     dispatch({ type: "SET_MODAL_OPEN" });
     dispatch({ type: "SET_MODAL_CONTENT_SEARCH" });
   };
@@ -46,7 +43,9 @@ const Navbar = () => {
         </div>
         <div className={styles.links_desktop}>
           <p>Prossime uscite</p>
-          <p>Card e Promo</p>
+          <Link className={styles.Link} to={"/cardPromo"}>
+            <p>Card e Promo</p>
+          </Link>
         </div>
         <div className={styles.login_desktop}>
           <Link className={styles.Link} to={"/login"}>

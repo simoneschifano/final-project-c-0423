@@ -1,4 +1,4 @@
-.RegisterPage {
+.LoginPage {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -6,37 +6,32 @@
   text-align: center;
   color: $secondary-color;
   height: 400px;
+  gap: 20px;
 
-  .registerForm {
-    h3 {
+  .loginForm {
+    width: 100%;
+    h4,
+    p {
       margin: 0 0 10px;
+      font-size: 0.8rem;
     }
     display: flex;
     flex-direction: column;
     align-items: center;
     .textInput {
-      @include def-input(80%);
-    }
-    .anagrafe {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      gap: 5px;
-
-      width: 84%;
-      .textInput {
-        @include def-input(100%);
-      }
-    }
-    .textInput {
-      width: 250px;
       margin-bottom: 10px;
+      @include def-input(70%);
+    }
+  }
+
+  .registerSection {
+    width: 100%;
+
+    p {
+      font-weight: bold;
     }
   }
   .Button {
-    // width: 100px;
-    // height: 30px;
-
     @include def-button;
     a {
       text-decoration: none;

@@ -7,9 +7,12 @@
     padding-bottom: 10px;
   }
   .select {
-    width: calc(100% - 16px);
-    padding: 8px;
-    border-radius: $border;
+    // width: calc(100% - 16px);
+    // padding: 8px;
+    // border-radius: $border;
+    // outline: none;
+
+    @include def-input(calc(100% - 16px));
 
     //TO SOLVE
     .option {

@@ -14,17 +14,10 @@
       margin: 0;
     }
     .searchInput {
-      width: 60%;
-      padding: 10px;
-      border-radius: $border;
+      @include def-input(60%);
     }
     .searchBtn {
-      width: 40%;
-      padding: 10px;
-      border-radius: 8px;
-      background-color: $secondary-color;
-      border: none;
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.72);
+      @include def-button;
     }
   }
 

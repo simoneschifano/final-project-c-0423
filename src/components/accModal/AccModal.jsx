@@ -1,18 +1,21 @@
 import styles from "./index.module.scss";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { Context } from "../../store/state";
 
-const AccModal = ({ visible, setVisible }) => {
+const AccModal = () => {
   const navigate = useNavigate();
+  const { dispatch } = useContext(Context);
 
   const onHandleLoginRed = () => {
     navigate(`/login`);
-    setVisible(() => !visible);
+    dispatch({ type: "SET_MODAL_CLOSE" });
   };
   const onHandleLogout = () => localStorage.removeItem("auth");
   // console.log(localStorage.getItem("auth"));
 
   return (
-    <div>
+    <div className={styles.AccModal}>
       {localStorage.getItem("auth") ? (
         <div className={styles.yes_auth}>
           <div className={styles.accInfo}>
