@@ -16,6 +16,7 @@ import TicketBuy from "./pages/TicketBuy";
 import Layout from "./components/layout";
 import "./index.css";
 import CardPromo from "./pages/CardPromo";
+import TopRated from "./pages/TopRated";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -27,6 +28,7 @@ const router = createBrowserRouter(
       <Route path="/ticket/:id/booking" element={<MovieBooking />} />
       <Route path="/ticket/:id/payment" element={<TicketBuy />} />
       <Route path="/cardPromo" element={<CardPromo />} />
+      <Route path="/movie/top_rated" element={<TopRated />} />
     </Route>
   )
 );

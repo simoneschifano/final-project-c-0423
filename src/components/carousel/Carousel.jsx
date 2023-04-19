@@ -1,39 +1,57 @@
-import styles from "./index.module.scss"
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import './index.css'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import CardCarousel from '../cardCarousel'
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
+import { EffectCoverflow, Pagination, Navigation } from 'swiper';
+
 
 const Carousel = ({ cardArrayData }) => {
-    const navigate = useNavigate();
-
-    const carouselImage = cardArrayData?.map((movie) => movie.image)
-    const filteredMovie = cardArrayData?.map((movie) => movie.id)
-
-    const [curr, setCurr] = useState(parseInt(cardArrayData.length / 2))
-
-    const onHandleClick = (e) => navigate(`/movie/${e.target.id}`)
-
-    const sliderImg = (i) => {
-        setCurr(i)
-    }
-
-    const prevSlide = () =>
-        setCurr((curr) => (curr === 0 ? cardArrayData.length - 1 : curr - 1))
-
-    const nextSlide = () =>
-        setCurr((curr) => (curr === cardArrayData.length - 1 ? 0 : curr + 1))
 
     return (
-        <div className={styles.Carousel}>
-            <div className={styles.Carousel__container}>
-                <img onClick={() => sliderImg(curr === 0 ? cardArrayData.length - 1 : curr - 1)} className={styles.prevImg} src={carouselImage[curr === 0 ? cardArrayData.length - 1 : curr - 1]} />
-                <img id={filteredMovie[curr]} onClick={onHandleClick} className={styles.currImg} src={carouselImage[curr]} />
-                <img onClick={() => sliderImg(curr === cardArrayData.length - 1 ? 0 : curr + 1)} className={styles.nextImg} src={carouselImage[curr === cardArrayData.length - 1 ? 0 : curr + 1]} />
-            </div>
-            <div className={styles.btn__container}>
-                <button onClick={prevSlide} className={styles.prevBtn}>{"<"}</button>
-                <button onClick={nextSlide} className={styles.nextBtn}>{">"}</button>
-            </div>
-        </div>
+        <div className="container">
+            <Swiper
+                effect={'coverflow'}
+                grabCursor={true}
+                centeredSlides={true}
+                loop={true}
+                slidesPerView={2}
+                coverflowEffect={{
+                    rotate: 0,
+                    stretch: 0,
+                    depth: 100,
+                    modifier: 2.5,
+                }}
+                navigation={{
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                    clickable: true,
+                }}
+                modules={[EffectCoverflow, Pagination, Navigation]}
+                className="swiper_container"
+            >
+
+                {cardArrayData?.map((data, i) => (
+                    <SwiperSlide key={i}>
+                        <CardCarousel data={data} key={data.id} />
+                    </SwiperSlide>
+                ))}
+
+                {/* <div className="slider-controler">
+                    <div className="swiper-button-prev slider-arrow">
+                        <ion-icon name="arrow-back-outline"></ion-icon>
+                    </div>
+                    <div className="swiper-button-next slider-arrow">
+                        <ion-icon name="arrow-forward-outline"></ion-icon>
+                    </div>
+                    <div className="swiper-pagination"></div>
+                </div> */}
+            </Swiper>
+        </div >
+
     )
 }
 

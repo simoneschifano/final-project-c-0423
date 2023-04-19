@@ -10,6 +10,10 @@ const GlobalState = ({ children }) => {
       const moviesData = data.results;
       dispatch({ type: "SET_MOVIE_LIST", payload: moviesData });
     });
+    GET("movie/top_rated").then((data) => {
+      const trMoviesData = data.results;
+      dispatch({ type: "SET_TR_MOVIE_LIST", payload: trMoviesData });
+    });
   }, []);
   return (
     <Context.Provider value={{ state, dispatch }}>{children}</Context.Provider>

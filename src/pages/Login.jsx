@@ -1,19 +1,46 @@
 import styles from "../styles/Login.module.scss";
 import { Link } from "react-router-dom";
+import { useState, useReducer } from "react";
+import { initRegisteredUsers } from "../store/state";
+import { mainReducer } from "../store/reducer";
+import { useNavigate } from "react-router-dom";
+
 const Login = () => {
+  const [state, dispatch] = useReducer(mainReducer, initRegisteredUsers);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const onHandleUserInput = (e) => setUsername(() => e.target.value);
+  const onHandlePassInput = (e) => setPassword(() => e.target.value);
+  const onHandleSubmit = (e) => {
+    e.preventDefault();
+    state.users.find(
+      (user) => user.password === password && user.username === username
+    )
+      ? (localStorage.setItem("auth", username), navigate(`/?user=${username}`))
+      : (alert("La password o la mail non è corretta"),
+        setPassword(""),
+        setUsername(""));
+  };
   return (
     <div className={styles.LoginPage}>
-      <form className={styles.loginForm}>
+      {console.log(state.users)}
+      <form className={styles.loginForm} onSubmit={onHandleSubmit}>
         <h3>Login</h3>
         <input
           className={styles.textInput}
           type="text"
           placeholder="Nome Utente"
+          value={username}
+          onChange={onHandleUserInput}
         />
         <input
           className={styles.textInput}
           type="password"
           placeholder="Password"
+          value={password}
+          onChange={onHandlePassInput}
         />
         <p>Recupera la password</p>
         <input type="submit" value="Entra" className={styles.Button} />

@@ -10,7 +10,7 @@ function App() {
   const { state } = useContext(Context);
   const cardArrayData = state.movieListData?.map((movie) => ({
     id: movie.id,
-    image: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
+    poster_path: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
   }));
 
   return (

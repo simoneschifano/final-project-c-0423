@@ -45,5 +45,17 @@ export const mainReducer = (state, action) => {
         ...state,
         visible: true,
       };
+    case "CREATE_NEW_USER":
+      console.log(state.users);
+
+      return {
+        ...state,
+        users: [...state.users, action.payload],
+      };
+    case "SET_TR_MOVIE_LIST":
+      return {
+        ...state,
+        trListData: action.payload,
+      };
   }
 };

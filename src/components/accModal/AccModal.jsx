@@ -5,13 +5,16 @@ import { Context } from "../../store/state";
 
 const AccModal = () => {
   const navigate = useNavigate();
-  const { dispatch } = useContext(Context);
+  const { state, dispatch } = useContext(Context);
 
   const onHandleLoginRed = () => {
     navigate(`/login`);
     dispatch({ type: "SET_MODAL_CLOSE" });
   };
-  const onHandleLogout = () => localStorage.removeItem("auth");
+  const onHandleLogout = () => {
+    localStorage.removeItem("auth");
+    navigate("/");
+  };
   // console.log(localStorage.getItem("auth"));
 
   return (
