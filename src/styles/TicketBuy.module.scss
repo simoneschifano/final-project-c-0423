@@ -1,0 +1,51 @@
+.payment__wrapper{
+    .searchBtn {
+    @include def-button;
+  }
+
+  .payment__wrapper {
+    text-align: center;
+  }
+  .payment__section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .Ap, .Gp, .Pp, .Cc{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .Ap, .Gp, .Pp, .Cc input[type="radio"]{
+    display: none;
+}
+    .payment__typo{
+    gap: 10px;
+    flex-wrap: wrap;
+    display: flex;
+}
+.checkout_imgs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.checkout_imgs form {
+    gap: 10px;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+.checkout_imgs label {
+    display: block;
+    border: 2px solid black;
+    border-radius: 2px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 3px 10px;
+}
+}

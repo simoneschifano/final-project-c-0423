@@ -33,7 +33,10 @@ const MovieDetails = () => {
         className={styles.trailer}
         width="350"
         height="235"
-        src={`https://www.youtube.com/embed/${trailer?.key}`}
+        src={`https://www.youtube.com/embed/${trailer?.key}?autoplay="1"`}
+        frameborder="0"
+        controls={0}
+        allowFullScreen
       ></iframe>
       <section className={styles.details}>
         <div className={styles.title_rating}>
@@ -41,9 +44,8 @@ const MovieDetails = () => {
           <div className={styles.starWrap}>
             <div
               className={styles.Stars}
-              aria-label={`Rating is ${
-                selectedMovie[0]?.vote_average / 2
-              } out of 5`}
+              aria-label={`Rating is ${selectedMovie[0]?.vote_average / 2
+                } out of 5`}
               style={{ "--rating": selectedMovie[0]?.vote_average / 2 }}
             ></div>
             {/* <span>{selectedMovie[0]?.vote_average / 2}</span> */}
@@ -79,7 +81,7 @@ const MovieDetails = () => {
           <Link to={`/ticket/${id}/booking`}>Aquista il tuo biglietto</Link>
         </button>
       </section>
-    </div>
+    </div >
   );
 };
 

@@ -5,6 +5,7 @@
 }
 
 .swiper_container {
+  z-index: -1;
   width: 40rem;
   height: 28rem;
   padding: 2rem 0;
@@ -24,17 +25,19 @@
   object-fit: cover;
 }
 
-
 @media screen and (max-width: 400px) {
   .container {
     max-width: 22rem;
-    padding: 2rem 1rem;
+    padding: 2rem 1rem !important;
+    padding: 2rem 0 !important;
     margin: 0 auto;
   }
 
   .swiper_container {
+    z-index: 0 !important;
     width: 20rem !important;
     height: 20rem !important;
+    text-align: center !important;
   }
 
   .swiper-slide {

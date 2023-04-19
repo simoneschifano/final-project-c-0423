@@ -14,6 +14,7 @@ const Carousel = ({ cardArrayData }) => {
     return (
         <div className="container">
             <Swiper
+                
                 effect={'coverflow'}
                 grabCursor={true}
                 centeredSlides={true}
