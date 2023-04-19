@@ -59,4 +59,73 @@
     text-align: center;
     @include def-button;
   }
+
+  .roomWrapper {
+    width: 250px;
+    height: 170px;
+    display: flex;
+
+    .leftSeat,
+    .rightSeat {
+      display: flex;
+      gap: 5px;
+      width: 25%;
+      height: 100%;
+      flex-wrap: wrap;
+      // border: 2px solid red;
+    }
+
+    .centerSeat {
+      display: flex;
+      flex-wrap: wrap;
+      width: 70%;
+      gap: 5px;
+      height: 100%;
+      justify-content: center;
+    }
+
+    .rightSeat {
+      justify-content: flex-end;
+      width: 25%;
+      gap: 5px;
+    }
+  }
+  .legend {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    height: 20px;
+
+    div {
+      .seat {
+        width: 10px;
+        height: 10px;
+      }
+      span {
+        font-size: 0.6rem;
+      }
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+  }
+}
+
+.seat {
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  border: 1px solid #e4e4e4;
+  cursor: pointer;
+}
+
+.booked {
+  background-color: #969696;
+}
+.available {
+  background-color: $primary-color;
+}
+.active {
+  background-color: $secondary-color;
 }

@@ -4,7 +4,6 @@ export const Context = createContext({});
 
 export const initialState = {
   movieListData: [],
-  //! aggiunto
   genreList: [],
   iconPush: {
     burger: false,
@@ -13,6 +12,14 @@ export const initialState = {
   },
   modalContent: null,
   visible: false,
+  ticketData: [
+    {
+      title: "",
+      date: "",
+      hour: "",
+      seat: "",
+    },
+  ],
 };
 
 export const initRegisteredUsers = {

@@ -1,4 +1,3 @@
-import AccModal from "../components/accModal/AccModal";
 export const mainReducer = (state, action) => {
   switch (action.type) {
     case "SET_MOVIE_LIST":
@@ -6,7 +5,6 @@ export const mainReducer = (state, action) => {
         ...state,
         movieListData: action.payload,
       };
-    //!Aggiunto
     case "SET_GENRE_LIST":
       return {
         ...state,
@@ -56,6 +54,27 @@ export const mainReducer = (state, action) => {
       return {
         ...state,
         trListData: action.payload,
+      };
+    case "SET_TICKET_MOVIE_TITLE":
+      return {
+        ...state,
+        ticketData: [{ ...state.ticketData, title: state.payload }],
+      };
+
+    case "SET_TICKET_DATE":
+      return {
+        ...state,
+        ticketData: [{ ...state.ticketData, date: state.payload }],
+      };
+    case "SET_TICKET_HOUR":
+      return {
+        ...state,
+        ticketData: [{ ...state.ticketData, hour: state.payload }],
+      };
+    case "SET_TICKET_SEAT":
+      return {
+        ...state,
+        ticketData: [{ ...state.ticketData, seat: state.payload }],
       };
   }
 };
