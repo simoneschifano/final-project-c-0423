@@ -10,10 +10,11 @@ const Layout = () => {
   return (
     <div className={styles.Layout}>
       <Navbar />
-
+      <div className={styles.rightTriangle}></div>
       <section className={`${state.visible && styles.noscroll}`}>
         <Outlet />
       </section>
+      <div className={styles.leftTriangle}></div>
       <Footer />
     </div>
   );

@@ -1,41 +1,53 @@
 .Card {
   // CAMBIARE DA PX A PERC min-height: fisso;
   position: relative;
-
+  @include tablet {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   .img {
     width: 128px;
     height: 172px;
 
     border-radius: $border;
     box-shadow: 1px 2px 4px rgba(211, 211, 211, 0.758);
+    @include tablet {
+      width: 200px;
+      height: 260px;
+    }
     cursor: pointer;
-    transition: all 0.35s;
+    transition: transform 0.35s;
     &:hover {
       transform: scale(1.2);
       opacity: 0.5;
     }
+    @include tablet {
+      transform: scale(1.05);
+    }
   }
   a {
+    z-index: -2;
     display: none;
+    @include tablet {
+      z-index: inherit;
+    }
   }
   //TO DO: hover nell'hover per mantenere la card in scale anche con l'hover su "acquista il biglietto"
   &:hover {
     a {
-      padding: 2px;
+      padding: 10px 0;
       text-align: center;
       border: 1px solid $primary-color;
       border-radius: $border;
       font-size: 0.9rem;
       width: 80%;
-      height: 40px;
+      // height: 40px;
       text-decoration: none;
       color: inherit;
       display: block;
       position: absolute;
-      top: calc(50% - 20px);
       background: rgba(0, 0, 0, 0.616);
-      left: calc(50% - 51px);
-
       &:hover {
         border: 1px solid transparent;
         color: $background;

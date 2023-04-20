@@ -5,9 +5,19 @@
   flex-wrap: wrap;
   gap: 28px 16px;
 
+  @include tablet {
+    padding: 0 5%;
+    gap: 60px 40px;
+    z-index: 2;
+    position: relative;
+  }
   .title {
     margin: 0;
     width: 100%;
-    color: $primary-color;
+    color: $secondary-color;
+    @include tablet {
+      text-align: center;
+      font-size: 1.3rem;
+    }
   }
 }

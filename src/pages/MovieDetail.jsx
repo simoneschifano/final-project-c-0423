@@ -20,7 +20,9 @@ const MovieDetails = () => {
   const [trailer, setTrailer] = useState([]);
   const rating = null;
   useEffect(() => {
-    GET(`movie/${id}/videos`).then((data) => setTrailer(() => data.results[0]));
+    GET(`movie/${id}/videos`, "").then((data) =>
+      setTrailer(() => data.results[1])
+    );
   }, []);
 
   useEffect(() => {
@@ -30,22 +32,29 @@ const MovieDetails = () => {
   return (
     <div className={styles.movieDet}>
       <iframe
-        className={styles.trailer}
+        className={styles.trailerMobile}
         width="350"
         height="235"
-        src={`https://www.youtube.com/embed/${trailer?.key}?autoplay="1"`}
-        frameborder="0"
-        controls={0}
+        src={`https://www.youtube.com/embed/${trailer?.key}?autoplay=1&mute=1`}
+        allowFullScreen
+      ></iframe>
+
+      <iframe
+        className={styles.trailerDesktop}
+        width="1000"
+        height="400"
+        src={`https://www.youtube.com/embed/${trailer?.key}?autoplay=1&mute=1`}
         allowFullScreen
       ></iframe>
       <section className={styles.details}>
         <div className={styles.title_rating}>
-          <h3>{selectedMovie[0]?.title}</h3>
+          <h3 className={styles.title}>{selectedMovie[0]?.title}</h3>
           <div className={styles.starWrap}>
             <div
               className={styles.Stars}
-              aria-label={`Rating is ${selectedMovie[0]?.vote_average / 2
-                } out of 5`}
+              aria-label={`Rating is ${
+                selectedMovie[0]?.vote_average / 2
+              } out of 5`}
               style={{ "--rating": selectedMovie[0]?.vote_average / 2 }}
             ></div>
             {/* <span>{selectedMovie[0]?.vote_average / 2}</span> */}
@@ -81,7 +90,7 @@ const MovieDetails = () => {
           <Link to={`/ticket/${id}/booking`}>Aquista il tuo biglietto</Link>
         </button>
       </section>
-    </div >
+    </div>
   );
 };
 
