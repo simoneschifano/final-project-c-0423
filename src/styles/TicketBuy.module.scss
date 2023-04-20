@@ -1,11 +1,14 @@
 .payment__wrapper{
-    .searchBtn {
+
+  .searchBtn {
     @include def-button;
   }
 
   .payment__wrapper {
+    width: 100%;
     text-align: center;
   }
+
   .payment__section {
     display: flex;
     flex-direction: column;
@@ -20,32 +23,59 @@
 
   .Ap, .Gp, .Pp, .Cc input[type="radio"]{
     display: none;
-}
-    .payment__typo{
+  }
+
+  .payment__typo{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    width:100%;
+  }
+
+  form {
     gap: 10px;
     flex-wrap: wrap;
     display: flex;
-}
-.checkout_imgs {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-}
+  }
 
-.checkout_imgs form {
-    gap: 10px;
-    flex-wrap: wrap;
-    display: flex;
-}
-
-.checkout_imgs label {
+  .payment__typo label {
     display: block;
     border: 2px solid black;
-    border-radius: 2px;
+    background-color: $primary-color;
+    border-radius: 10px;
     margin-bottom: 10px;
-    font-size: 18px;
+    font-size: 10px;
     font-weight: bold;
     padding: 3px 10px;
-}
+  }
+
+  .payment__typo input[type="radio"] {
+    display: none;
+  }
+
+  .payment__typo label img {
+    object-fit: contain;
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    opacity: 0.1;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .payment__typo input[type="radio"]:checked+img {
+    opacity: 1;
+  }
+
+  hr {
+    margin: 30px 0;
+  }
+
+  .total_wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
 }

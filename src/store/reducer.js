@@ -31,7 +31,6 @@ export const mainReducer = (state, action) => {
         iconPush: { search: true, user: false, burger: false },
         modalContent: action.payload,
       };
-
     case "SET_MODAL_CLOSE":
       document.body.classList.remove("noscroll");
       return {
@@ -45,7 +44,6 @@ export const mainReducer = (state, action) => {
       };
     case "CREATE_NEW_USER":
       console.log(state.users);
-
       return {
         ...state,
         users: [...state.users, action.payload],
@@ -60,7 +58,6 @@ export const mainReducer = (state, action) => {
         ...state,
         ticketData: [{ ...state.ticketData, title: state.payload }],
       };
-
     case "SET_TICKET_DATE":
       return {
         ...state,
@@ -76,5 +73,35 @@ export const mainReducer = (state, action) => {
         ...state,
         ticketData: [{ ...state.ticketData, seat: state.payload }],
       };
+    case "SET_PAYMENT_MODAL_OPEN":
+      return {
+        ...state,
+        paymentModalVisible: true,
+      }
+    case "SET_PAYMENT_MODAL_CLOSE":
+      return {
+        ...state,
+        paymentModalVisible: false,
+      }
+    case "SET_CC_CHECK":
+      return {
+        ...state,
+        methodCheckControl: {CC: true, PP: false , GP: false, AP: false}
+      }
+    case "SET_PP_CHECK":
+      return {
+        ...state,
+        methodCheckControl: {CC: false, PP: true , GP: false, AP: false}
+      }
+    case "SET_GP_CHECK":
+      return {
+        ...state,
+        methodCheckControl: {CC: false, PP: false , GP: true, AP: false}
+      }
+    case "SET_AP_CHECK":
+      return {
+        ...state,
+        methodCheckControl: {CC: false, PP: false , GP: false, AP: true}
+      }
   }
 };

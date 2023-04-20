@@ -3,8 +3,29 @@ import Ap from '../assets/a_pay.png'
 import Cc from '../assets/cc.png'
 import Gp from '../assets/g_pay.png'
 import Pp from '../assets/pp.png'
+import PaymentModal from '../components/paymentModal'
+import { useContext } from "react";
+import { Context } from "../store/state";
+
 
 const TicketBuy = () => {
+
+	const { state, dispatch } = useContext(Context);
+
+	const onHandleSuccessModal = () => {
+		!state.methodCheckControl.CC &&
+			!state.methodCheckControl.PP &&
+			!state.methodCheckControl.GP &&
+			!state.methodCheckControl.AP ?
+			alert("Selezionare un metodo di pagamento") :
+			dispatch({ type: "SET_PAYMENT_MODAL_OPEN" });
+	}
+
+	const aPChecked = () => dispatch({ type: "SET_AP_CHECK" })
+	const gPChecked = () => dispatch({ type: "SET_GP_CHECK" })
+	const cCChecked = () => dispatch({ type: "SET_CC_CHECK" })
+	const pPChecked = () => dispatch({ type: "SET_PP_CHECK" })
+
 	return (
 		<div className={styles.payment__wrapper}>
 			<h3>Termina e Paga</h3>
@@ -12,15 +33,15 @@ const TicketBuy = () => {
 				<p>Seleziona un metodo di pagamento</p>
 				<form className={styles.payment__typo}>
 					<label>
-						<input className={styles.Ap}
+						<input onClick={aPChecked} className={styles.Ap}
 							type="radio"
 							name="payment-method"
-							checked-value="apple-pay"
+							value="apple-pay"
 						></input>
 						<img src={Ap} alt="Apple-Pay"></img>
 					</label>
 					<label>
-						<input className={styles.Gp}
+						<input onClick={gPChecked} className={styles.Gp}
 							type="radio"
 							name="payment-method"
 							value="google-pay"
@@ -28,7 +49,7 @@ const TicketBuy = () => {
 						<img src={Gp} alt="Google-Pay"></img>
 					</label>
 					<label>
-						<input className={styles.Cc}
+						<input onClick={cCChecked} className={styles.Cc}
 							type="radio"
 							name="payment-method"
 							value="credit-card"
@@ -36,7 +57,7 @@ const TicketBuy = () => {
 						<img src={Cc} alt="Credit-Card"></img>
 					</label>
 					<label>
-						<input className={styles.Pp}
+						<input onClick={pPChecked} className={styles.Pp}
 							type="radio"
 							name="payment-method"
 							value="paypal"
@@ -44,8 +65,13 @@ const TicketBuy = () => {
 						<img src={Pp} alt="PayPal"></img>
 					</label>
 				</form>
+				<hr />
+				<div className={styles.total_wrapper}>
+					<h3 class="total">Totale:</h3>
+				</div>
+				<input onClick={onHandleSuccessModal} className={styles.searchBtn} type="submit" value={"Paga ora"} />
+				{state.paymentModalVisible && <PaymentModal />}
 			</div>
-			<input className={styles.searchBtn} type="submit" value={"Paga ora"} />
 		</div>
 	)
 };
