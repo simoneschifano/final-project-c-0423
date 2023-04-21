@@ -1,41 +1,59 @@
 .LoginPage {
+  border: 2px solid red;
   display: flex;
-  flex-direction: column;
+  // flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   color: $secondary-color;
   height: 400px;
   gap: 20px;
-
-  .loginForm {
-    width: 100%;
-    h4,
-    p {
-      margin: 0 0 10px;
-      font-size: 0.8rem;
+  .forms {
+    border: 1px solid violet;
+    padding: 50px;
+    .loginForm {
+      border: 2px solid yellow;
+      width: 100%;
+      h4,
+      p {
+        margin: 0 0 10px;
+        font-size: 0.8rem;
+      }
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .textInput {
+        margin-bottom: 10px;
+        @include def-input(70%);
+      }
     }
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    .textInput {
-      margin-bottom: 10px;
-      @include def-input(70%);
+
+    .registerSection {
+      border: 2px solid blue;
+      width: 100%;
+
+      p {
+        font-weight: bold;
+      }
+    }
+    .Button {
+      @include def-button;
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
     }
   }
-
-  .registerSection {
-    width: 100%;
-
-    p {
-      font-weight: bold;
-    }
+  .backgroundImage {
+    display: none;
+    // position: ;
+    width: 250px;
+    // height: 50%;
   }
-  .Button {
-    @include def-button;
-    a {
-      text-decoration: none;
-      color: inherit;
+
+  @include desktop {
+    .backgroundImage {
+      display: block;
     }
   }
 }
