@@ -1,2 +1,10 @@
 .App {
 }
+
+@media screen and (min-width: 1024px) {
+	.respTopHome {
+		display: flex;
+		justify-content: space-between;
+		padding-left: 40px;
+	}
+}

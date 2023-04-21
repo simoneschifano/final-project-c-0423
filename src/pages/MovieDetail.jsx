@@ -21,7 +21,7 @@ const MovieDetails = () => {
   const rating = null;
   useEffect(() => {
     GET(`movie/${id}/videos`, "").then((data) =>
-      setTrailer(() => data.results[1])
+      setTrailer(() => data.results[0])
     );
   }, []);
 
@@ -49,6 +49,23 @@ const MovieDetails = () => {
       <section className={styles.details}>
         <div className={styles.title_rating}>
           <h3 className={styles.title}>{selectedMovie[0]?.title}</h3>
+          <div className={styles.infoWrapper}>
+            <div className={styles.leftInfo}>
+              <h3 className={styles.titleDesktop}>{selectedMovie[0]?.title}</h3>
+              <div
+                className={styles.Stars}
+                aria-label={`Rating is ${
+                  selectedMovie[0]?.vote_average / 2
+                } out of 5`}
+                style={{ "--rating": selectedMovie[0]?.vote_average / 2 }}
+              ></div>
+            </div>
+            <div className={styles.genresDesktop}>
+              {genreId.map((genre) => (
+                <p key={genre.id}>{genre.name}</p>
+              ))}
+            </div>
+          </div>
           <div className={styles.starWrap}>
             <div
               className={styles.Stars}
@@ -68,9 +85,8 @@ const MovieDetails = () => {
         </div>
         <div className={styles.genres}>
           {genreId.map((genre) => (
-            <p>{genre.name}</p>
+            <p key={genre.id}>{genre.name}</p>
           ))}
-          {console.log(genreId)}
         </div>
         <p className={styles.description}>{selectedMovie[0]?.overview}</p>
 
@@ -82,6 +98,18 @@ const MovieDetails = () => {
                 src={`https://image.tmdb.org/t/p/w500${cast?.profile_path}`}
                 alt={cast.name}
               />
+            </div>
+          ))}
+        </div>
+
+        <div className={styles.castWrapperDesktop}>
+          {cast?.slice(0, 8).map((cast) => (
+            <div className={styles.actorImg} key={cast.id}>
+              <img
+                src={`https://image.tmdb.org/t/p/w500${cast?.profile_path}`}
+                alt={cast.name}
+              />
+              <p className={styles.actorName}>{cast.original_name}</p>
             </div>
           ))}
         </div>

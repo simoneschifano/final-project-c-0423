@@ -7,11 +7,6 @@
     padding-bottom: 10px;
   }
   .select {
-    // width: calc(100% - 16px);
-    // padding: 8px;
-    // border-radius: $border;
-    // outline: none;
-
     @include def-input(calc(100% - 16px));
 
     //TO SOLVE
@@ -25,5 +20,42 @@
         color: $tertiary-color;
       }
     }
+  }
+  // .quote {
+  // 	display: none;
+  // }
+}
+
+@media screen and (min-width: 1024px) {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .title {
+      margin-bottom: 20px;
+      width: calc(100% - 16px);
+    }
+    .quote {
+      display: block;
+      width: 80%;
+
+      blockquote {
+        padding-top: 20px;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+        font-size: 1.3rem;
+      }
+      p {
+        text-align: right;
+        color: white;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .quote {
+    display: none;
   }
 }

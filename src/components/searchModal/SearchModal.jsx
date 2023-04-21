@@ -1,7 +1,7 @@
 import styles from "./index.module.scss";
 import { useState, useContext } from "react";
 import { Context } from "../../store/state";
-import Card from "../card";
+import CardSearch from "../cardSearch";
 
 const SearchModal = () => {
   const [inputMovieName, setInputMovieName] = useState("");
@@ -12,27 +12,45 @@ const SearchModal = () => {
   );
 
   const onHandleChangeName = (e) => setInputMovieName(() => e.target.value);
+  const [inputControl, setInputControl] = useState(false);
   const onSubmitSearch = (e) => {
     e.preventDefault();
     setSubmitMovieName(inputMovieName.toLowerCase());
+
+    if (
+      submitMovieName == "" ||
+      submitMovieName.length == 0 ||
+      filterMovies.length == 0
+    ) {
+      setInputControl(true);
+    }
   };
+
   return (
     <div className={styles.wrapper}>
-      <form action="" onSubmit={onSubmitSearch}>
+      <form action="">
         <h3 className={styles.title}>Cerca un film</h3>
-        {/* <label htmlFor="movieInput">Cerca un film</label> */}
         <input
           className={styles.searchInput}
           type="text"
           name="movieInput"
           onChange={onHandleChangeName}
         />
-        <input className={styles.searchBtn} type="submit" value={"Cerca"} />
+        <input
+          onClick={onSubmitSearch}
+          className={styles.searchBtn}
+          type="submit"
+          value={"Cerca"}
+        />
       </form>
       <div className={styles.cardWrapper}>
         {submitMovieName !== "" &&
+          submitMovieName !== " " &&
           filterMovies.length !== 0 &&
-          filterMovies.map((movie) => <Card data={movie} key={movie.id} />)}
+          filterMovies.map((movie) => (
+            <CardSearch data={movie} key={movie.id} />
+          ))}
+        {inputControl && <p>La ricerca non ha prodotto alcun risultato</p>}
       </div>
     </div>
   );

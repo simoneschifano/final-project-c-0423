@@ -11,7 +11,9 @@ const HamburgerMenu = () => {
       <Link to="/" onClick={onHandleCloseModal}>
         <h3>Home</h3>
       </Link>
-      <h3>Film più amati</h3>
+      <Link to="/movie/top_rated" onClick={onHandleCloseModal}>
+        <h3>Film più amati</h3>
+      </Link>
       <Link to="/cardPromo" onClick={onHandleCloseModal}>
         <h3>Card e Promo</h3>
       </Link>

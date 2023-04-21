@@ -32,25 +32,36 @@ const Navbar = () => {
 
   return (
     <>
-      <div className={`${styles.Navbar} ${state.visible && styles.fixed}`}>
-        <div className={styles.logo} onClick={onHandleLogoClick}>
-          <img src={logo} alt="logo" />
+      <div className={styles.Navbar}>
+        <div className={styles.deskLeftNav}>
+          <div className={styles.logo} onClick={onHandleLogoClick}>
+            <img src={logo} alt="logo" />
+          </div>
+          <div className={styles.links_desktop}>
+            <Link className={styles.Link} to={"/movie/top_rated"}>
+              <p>I più amati</p>
+            </Link>
+            <Link className={styles.Link} to={"/cardPromo"}>
+              <p>Card e Promo</p>
+            </Link>
+          </div>
         </div>
         <div className={styles.icons_mobile}>
           <RxHamburgerMenu onClick={burgerMenu} />
           <BiSearchAlt onClick={searchMenu} />
           <AiOutlineUserDelete className={styles.userIcon} onClick={userMenu} />
         </div>
-        <div className={styles.links_desktop}>
-          <p>Prossime uscite</p>
-          <Link className={styles.Link} to={"/cardPromo"}>
-            <p>Card e Promo</p>
-          </Link>
-        </div>
-        <div className={styles.login_desktop}>
-          <Link className={styles.Link} to={"/login"}>
-            Login o Registrati
-          </Link>
+
+        <div className={styles.icons_desktop}>
+          <BiSearchAlt onClick={searchMenu} />
+          <AiOutlineUserDelete className={styles.userIcon} onClick={userMenu} />
+          {!localStorage.getItem("auth") && (
+            <div className={styles.login_desktop}>
+              <Link className={styles.Link} to={"/login"}>
+                Login o Registrati
+              </Link>
+            </div>
+          )}
         </div>
       </div>
       <Modal />

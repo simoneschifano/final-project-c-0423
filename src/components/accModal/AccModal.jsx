@@ -15,7 +15,7 @@ const AccModal = () => {
     localStorage.removeItem("auth");
     navigate("/");
   };
-  // console.log(localStorage.getItem("auth"));
+  console.log(localStorage.getItem("auth"));
 
   return (
     <div className={styles.AccModal}>
@@ -24,11 +24,11 @@ const AccModal = () => {
           <div className={styles.accInfo}>
             <img
               className={styles.userImg}
-              src="https://robohash.org/Erica"
+              src={`https://robohash.org/${localStorage.auth}`}
               alt="foto profilo"
             />
-            {/* <span>{user?.username}</span> */}
-            <span>username</span>
+
+            <span>{localStorage.auth}</span>
           </div>
           <ul className={styles.accOpts}>
             <li>Dettagli profilo</li>
@@ -40,7 +40,7 @@ const AccModal = () => {
         </div>
       ) : (
         <div className={styles.no_auth}>
-          <p>Hai già un account? Clicca qui per fare il login!</p>
+          <p>Hai già un account? </p> <p>Clicca qui per fare il login!</p>
           <button className={styles.loginBtn} onClick={onHandleLoginRed}>
             Login
           </button>

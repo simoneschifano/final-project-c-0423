@@ -1,4 +1,10 @@
-.payment__wrapper{
+.payment__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: $roboto;
+  color: $secondary-color;
 
   .searchBtn {
     @include def-button;
@@ -12,25 +18,36 @@
   .payment__section {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    p {
+      text-align: center;
+      font-family: $roboto;
+    }
   }
 
-  .Ap, .Gp, .Pp, .Cc{
+  .Ap,
+  .Gp,
+  .Pp,
+  .Cc {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     width: 100%;
   }
 
-  .Ap, .Gp, .Pp, .Cc input[type="radio"]{
+  .Ap,
+  .Gp,
+  .Pp,
+  .Cc input[type="radio"] {
     display: none;
   }
 
-  .payment__typo{
+  .payment__typo {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 40px;
-    width:100%;
+    width: 80%;
   }
 
   form {
@@ -43,11 +60,11 @@
     display: block;
     border: 2px solid black;
     background-color: $primary-color;
-    border-radius: 10px;
     margin-bottom: 10px;
     font-size: 10px;
     font-weight: bold;
     padding: 3px 10px;
+    border-radius: 22px;
   }
 
   .payment__typo input[type="radio"] {
@@ -64,7 +81,7 @@
     transition: opacity 0.3s ease-in-out;
   }
 
-  .payment__typo input[type="radio"]:checked+img {
+  .payment__typo input[type="radio"]:checked + img {
     opacity: 1;
   }
 
@@ -77,5 +94,4 @@
     justify-content: space-between;
     align-items: center;
   }
-
 }

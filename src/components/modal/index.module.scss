@@ -1,6 +1,6 @@
 .modalWrap {
   position: fixed;
-  left: 0;
+  right: 0;
   top: 64px;
   transform: translateX(100%);
   width: 100%;
@@ -8,8 +8,7 @@
   background-color: #3a3a3a;
   border-right: 1px solid #ccc;
   transition: transform 1.55s ease;
-  // opacity: 0;
-  z-index: 1;
+  z-index: 2;
 
   .backArrow {
     color: $primary-color;
@@ -25,13 +24,16 @@
   }
   .logo {
     position: absolute;
-    bottom: 25px;
+    bottom: 15px;
     right: 20px;
+    width: 120px;
+  }
+
+  @include tablet {
     width: 30%;
   }
 }
 
 .show {
   transform: translateX(0px);
-  // opacity: 1;
 }

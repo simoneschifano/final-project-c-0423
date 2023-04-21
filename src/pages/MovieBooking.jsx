@@ -1,29 +1,59 @@
 import styles from "../styles/movieBooking.module.scss";
 import Ellipse from "../assets/Ellipse.png";
-import { Link, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useState, useContext, useRef } from "react";
 import { Context } from "../store/state.js";
 import mock from "../utils/mock.json";
+import ModalError from "../components/modalError";
 
 const MovieBooking = () => {
   const { id } = useParams();
   const { state } = useContext(Context);
+  const navigate = useNavigate();
+
+  const selectedDateRef = useRef([]);
+  const selectedHourRef = useRef([]);
   const selectedSeatRef = useRef([]);
+
+  const [checkState, setCheckState] = useState(false);
+
   const selectedMovie = (paramId) =>
     state?.movieListData.filter((movie) => movie.id === parseInt(paramId));
-  const onHandleClickSelection = (day) => {
-    setSelection(() => !selection[day.id].isSelected);
-    console.log(selection);
+
+  const selectionDate = [
+    { id: 0, content: "20/04" },
+    { id: 1, content: "21/04" },
+    { id: 2, content: "22/04" },
+    { id: 3, content: "23/04" },
+    { id: 4, content: "24/04" },
+    { id: 5, content: "25/04" },
+  ];
+
+  const selectionHour = [
+    { id: 0, content: "16:00" },
+    { id: 1, content: "18:00" },
+    { id: 2, content: "20:00" },
+    { id: 3, content: "22:00" },
+    { id: 4, content: "00:00" },
+  ];
+
+  selectedDateRef.current = [];
+  const addDateRef = (date) => {
+    if (date && !selectedDateRef.current.includes(date)) {
+      selectedDateRef.current.push(date);
+    }
+    const classNameArr = [];
+    classNameArr.push(selectedDateRef.current.find((li) => li.className));
   };
 
-  const [selection, setSelection] = useState([
-    { id: 0, isSelected: false, content: "20/04" },
-    { id: 1, isSelected: false, content: "21/04" },
-    { id: 2, isSelected: false, content: "22/04" },
-    { id: 3, isSelected: false, content: "23/04" },
-    { id: 4, isSelected: false, content: "24/04" },
-    { id: 5, isSelected: false, content: "25/04" },
-  ]);
+  selectedHourRef.current = [];
+  const addHourRef = (hour) => {
+    if (hour && !selectedHourRef.current.includes(hour)) {
+      selectedHourRef.current.push(hour);
+    }
+    const classNameArr = [];
+    classNameArr.push(selectedHourRef.current.find((li) => li.className));
+  };
 
   selectedSeatRef.current = [];
   const addRef = (seat) => {
@@ -31,11 +61,38 @@ const MovieBooking = () => {
       selectedSeatRef.current.push(seat);
     }
   };
+  const onHandleSelectedDate = (e) => {
+    selectedDateRef.current[e.target.id]?.classList.toggle(
+      `${styles.selected}`
+    );
+  };
+
+  const onHandleSelectedHour = (e) => {
+    selectedHourRef.current[e.target.id]?.classList.toggle(
+      `${styles.selected}`
+    );
+  };
 
   const onHandleSelectedSeat = (e) => {
     selectedSeatRef.current[e.target.id - 1].classList.toggle(
       `${styles.active}`
     );
+  };
+  const onHandlePayment = () => {
+    const dataCheck = selectedDateRef.current.filter((li) => li.className);
+    const hourCheck = selectedHourRef.current.filter((li) => li.className);
+    const seatCheck = selectedSeatRef.current.filter((div) =>
+      div.className.includes("active")
+    );
+    if (
+      dataCheck.length !== 1 ||
+      hourCheck.length !== 1 ||
+      seatCheck.length == 0
+    ) {
+      setCheckState(true);
+    } else {
+      navigate(`/ticket/${id}/payment`);
+    }
   };
 
   return (
@@ -45,11 +102,12 @@ const MovieBooking = () => {
       <div className={styles.dateSection}>
         <p>Scegli una data</p>
         <ul>
-          {selection.map((day) => (
+          {selectionDate.map((day) => (
             <li
+              id={day.id}
               key={day.id}
-              className={day.isSelected ? styles.selected : ""}
-              onClick={() => onHandleClickSelection(day)}
+              onClick={onHandleSelectedDate}
+              ref={addDateRef}
             >
               {day.content}
             </li>
@@ -59,11 +117,16 @@ const MovieBooking = () => {
       <div className={styles.hoursSection}>
         <p>Scegli un orario</p>
         <ul>
-          <li>16:00</li>
-          <li>18:00</li>
-          <li>20:00</li>
-          <li>22:00</li>
-          <li>00:00</li>
+          {selectionHour.map((hour) => (
+            <li
+              id={hour.id}
+              key={hour.id}
+              onClick={onHandleSelectedHour}
+              ref={addHourRef}
+            >
+              {hour.content}
+            </li>
+          ))}
         </ul>
       </div>
       <img src={Ellipse} alt="Red Card" />
@@ -126,7 +189,9 @@ const MovieBooking = () => {
           <span>Selezione</span>
         </div>
       </div>
-      <Link to={`/ticket/${id}/payment`}>Vai al pagamento</Link>
+      <button onClick={onHandlePayment}>Vai al pagamento</button>
+
+      {checkState && <ModalError setCheckState={setCheckState} />}
     </div>
   );
 };

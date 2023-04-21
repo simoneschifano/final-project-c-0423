@@ -17,14 +17,6 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  // .trailer {
-  //   border: none;
-  //   border-radius: 4px;
-  // }
-  // .title {
-  //   align-self: flex-start;
-  //   font-size: 26px;
-  // }
 
   .trailerMobile {
     border: none;
@@ -53,14 +45,68 @@ body {
     justify-content: center;
     @include tablet {
       align-items: flex-start;
-      padding: 2% 7%;
+      position: relative;
+      padding: 2% 10%;
     }
+
+    .starWrap {
+      .Stars {
+        @include tablet {
+          display: none;
+        }
+      }
+    }
+
+    .title_rating {
+      .infoWrapper {
+        display: none;
+        @include tablet {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          align-items: baseline;
+          .leftInfo {
+            text-align: left;
+          }
+        }
+        .genresDesktop {
+          @include tablet {
+            width: 291px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+          }
+          p {
+            @include tablet {
+              margin: 0;
+              width: 80px;
+              background-color: $primary-color;
+              color: $background;
+              font-weight: bold;
+              padding: 5px 15px;
+              border-radius: 15px;
+            }
+          }
+        }
+      }
+      @include tablet {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 60%;
+      }
+    }
+
     .tags {
       display: flex;
       justify-content: space-between;
       gap: 90px;
       @include tablet {
-        justify-self: flex-end;
+        // margin-top: 20px;
+        width: 60%;
+        font-weight: bold;
       }
     }
     .title {
@@ -68,8 +114,11 @@ body {
       justify-content: center;
       @include tablet {
         align-self: flex-start;
-        font-size: 2.5rem;
-        margin: 0;
+        font-size: 2rem;
+        margin: 10px;
+        display: none;
+        height: 20px;
+        border: 2px solid #181818;
       }
     }
 
@@ -79,6 +128,9 @@ body {
       justify-content: space-evenly;
       flex-wrap: wrap;
       gap: 15px 0;
+      @include tablet {
+        display: none;
+      }
       p {
         margin: 0;
         width: 80px;
@@ -95,10 +147,16 @@ body {
       padding: 25px;
       color: $secondary-color;
       font-size: 1rem;
+      @include tablet {
+        width: 60%;
+      }
     }
     .text {
       align-self: flex-start;
       padding-left: 8%;
+      @include tablet {
+        display: none;
+      }
     }
 
     .castWrapper {
@@ -106,6 +164,10 @@ body {
       display: flex;
       gap: 20px;
       overflow-x: auto;
+
+      @include tablet {
+        display: none;
+      }
       .actorImg {
         margin-bottom: 20px;
         img {
@@ -125,6 +187,35 @@ body {
         }
       }
     }
+
+    .castWrapperDesktop {
+      display: none;
+      @include tablet {
+        margin: 25px;
+        display: flex;
+        flex-direction: column;
+        right: 4%;
+        position: absolute;
+        top: 40px;
+        height: 85%;
+        overflow-y: auto;
+        .actorImg {
+          @include tablet {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 20px;
+          }
+          img {
+            @include tablet {
+              object-fit: cover;
+              border-radius: 100%;
+              height: 50px;
+              width: 50px;
+            }
+          }
+        }
+      }
+    }
   }
 
   .bookBtn {
@@ -136,6 +227,10 @@ body {
     box-shadow: 2px 2px 1px rgb(29, 29, 29);
     border: none;
     transition: all 0.35s;
+
+    @include tablet {
+      margin-left: 25%;
+    }
     a:link,
     a:active,
     a:visited {
@@ -270,4 +365,19 @@ body {
   font-size: 14px;
   margin: 0;
   color: white;
+}
+::-webkit-scrollbar {
+  height: 6px;
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: rgba(244, 243, 238, 0.933);
+}
+
+::-webkit-scrollbar-thumb {
+  border-top-right-radius: 2px;
+  background: #3f5451;
+  box-shadow: 0 0 1px $tertiary-color;
 }
