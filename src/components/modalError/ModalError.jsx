@@ -1,6 +1,6 @@
 import styles from "./index.module.scss";
 
-const ModalError = ({ setCheckState }) => {
+const ModalError = ({ setCheckState, message }) => {
   const onHandleCloseModal = () => {
     setCheckState(false);
   };
@@ -10,10 +10,7 @@ const ModalError = ({ setCheckState }) => {
         <span onClick={onHandleCloseModal} className={styles.close}>
           &times;
         </span>
-        <p className={styles.message}>
-          Attenzione, bisogna selezionare UNA data e UN orario e almeno un
-          posto.
-        </p>
+        <p className={styles.message}>{message}</p>
       </div>
     </div>
   );

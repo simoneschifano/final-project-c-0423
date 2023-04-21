@@ -22,7 +22,7 @@ const SearchModal = () => {
       submitMovieName.length == 0 ||
       filterMovies.length == 0
     ) {
-      setInputControl(true);
+      setInputControl(!inputControl);
     }
   };
 

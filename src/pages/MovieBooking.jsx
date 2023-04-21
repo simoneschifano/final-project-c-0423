@@ -191,7 +191,14 @@ const MovieBooking = () => {
       </div>
       <button onClick={onHandlePayment}>Vai al pagamento</button>
 
-      {checkState && <ModalError setCheckState={setCheckState} />}
+      {checkState && (
+        <ModalError
+          setCheckState={setCheckState}
+          message={
+            "Attenzione, bisogna selezionare una data e un orario e almeno un posto."
+          }
+        />
+      )}
     </div>
   );
 };

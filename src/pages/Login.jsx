@@ -4,11 +4,13 @@ import { useState, useReducer } from "react";
 import { initRegisteredUsers } from "../store/state";
 import { mainReducer } from "../store/reducer";
 import { useNavigate } from "react-router-dom";
+import ModalError from "../components/modalError";
 
 const Login = () => {
   const [state, dispatch] = useReducer(mainReducer, initRegisteredUsers);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [modalState, setModalstate] = useState(false);
   const navigate = useNavigate();
 
   const onHandleUserInput = (e) => setUsername(() => e.target.value);
@@ -19,7 +21,8 @@ const Login = () => {
       (user) => user.password === password && user.username === username
     )
       ? (localStorage.setItem("auth", username), navigate(`/?user=${username}`))
-      : (alert("La password o la mail non è corretta"),
+      : (setModalstate(true),
+        // alert("La password o la mail non è corretta"),
         setPassword(""),
         setUsername(""));
   };
@@ -51,6 +54,12 @@ const Login = () => {
           <Link to={"/register"}>Registrati</Link>
         </button>
       </div>
+      {modalState && (
+        <ModalError
+          setCheckState={setModalstate}
+          message={"Nome utente o password incorretti"}
+        />
+      )}
     </div>
   );
 };

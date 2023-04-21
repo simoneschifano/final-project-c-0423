@@ -4,19 +4,22 @@ import Cc from "../assets/cc.png";
 import Gp from "../assets/g_pay.png";
 import Pp from "../assets/pp.png";
 import PaymentModal from "../components/paymentModal";
-import { useContext } from "react";
+import { useState, useContext } from "react";
 import { Context } from "../store/state";
+import ModalError from "../components/modalError";
 
 const TicketBuy = () => {
   const { state, dispatch } = useContext(Context);
+  const [modalState, setModalState] = useState(false);
 
   const onHandleSuccessModal = () => {
     !state.methodCheckControl.CC &&
     !state.methodCheckControl.PP &&
     !state.methodCheckControl.GP &&
     !state.methodCheckControl.AP
-      ? alert("Selezionare un metodo di pagamento")
-      : dispatch({ type: "SET_PAYMENT_MODAL_OPEN" });
+      ? setModalState(true)
+      : // alert("Selezionare un metodo di pagamento")
+        dispatch({ type: "SET_PAYMENT_MODAL_OPEN" });
   };
 
   const aPChecked = () => dispatch({ type: "SET_AP_CHECK" });
@@ -82,6 +85,12 @@ const TicketBuy = () => {
         />
         {state.paymentModalVisible && <PaymentModal />}
       </div>
+      {modalState && (
+        <ModalError
+          setCheckState={setModalState}
+          message={"Selezionare un metodo di pagamento"}
+        />
+      )}
     </div>
   );
 };
