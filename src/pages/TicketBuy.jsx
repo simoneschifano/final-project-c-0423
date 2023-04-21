@@ -14,9 +14,9 @@ const TicketBuy = () => {
 
   const onHandleSuccessModal = () => {
     !state.methodCheckControl.CC &&
-      !state.methodCheckControl.PP &&
-      !state.methodCheckControl.GP &&
-      !state.methodCheckControl.AP
+    !state.methodCheckControl.PP &&
+    !state.methodCheckControl.GP &&
+    !state.methodCheckControl.AP
       ? setModalState(true)
       : dispatch({ type: "SET_PAYMENT_MODAL_OPEN" });
   };
@@ -74,7 +74,9 @@ const TicketBuy = () => {
           </label>
         </form>
         <div className={styles.total_wrapper}>
-          <h3 className={styles.total}>Totale: $20,00 </h3>
+          <h3 className={styles.total}>
+            Totale: ${state.ticketData.seat.length * 6}{" "}
+          </h3>
         </div>
         <input
           onClick={onHandleSuccessModal}

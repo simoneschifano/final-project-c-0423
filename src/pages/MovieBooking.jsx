@@ -8,7 +8,7 @@ import ModalError from "../components/modalError";
 
 const MovieBooking = () => {
   const { id } = useParams();
-  const { state } = useContext(Context);
+  const { state, dispatch } = useContext(Context);
   const navigate = useNavigate();
 
   const selectedDateRef = useRef([]);
@@ -62,12 +62,14 @@ const MovieBooking = () => {
     }
   };
   const onHandleSelectedDate = (e) => {
+    dispatch({ type: "SET_TICKET_DATE", payload: e.target.innerHTML });
     selectedDateRef.current[e.target.id]?.classList.toggle(
       `${styles.selected}`
     );
   };
 
   const onHandleSelectedHour = (e) => {
+    dispatch({ type: "SET_TICKET_HOUR", payload: e.target.innerHTML });
     selectedHourRef.current[e.target.id]?.classList.toggle(
       `${styles.selected}`
     );
@@ -77,6 +79,10 @@ const MovieBooking = () => {
     selectedSeatRef.current[e.target.id - 1].classList.toggle(
       `${styles.active}`
     );
+    dispatch({
+      type: "SET_TICKET_SEAT",
+      payload: e.target.attributes.seat.value,
+    });
   };
   const onHandlePayment = () => {
     const dataCheck = selectedDateRef.current.filter((li) => li.className);
@@ -89,8 +95,18 @@ const MovieBooking = () => {
       hourCheck.length !== 1 ||
       seatCheck.length == 0
     ) {
+      dispatch({ type: "SET_TICKET_DATE", payload: "" });
+      dispatch({ type: "SET_TICKET_HOUR", payload: "" });
+      dispatch({
+        type: "SET_TICKET_SEAT",
+        payload: "",
+      });
       setCheckState(true);
     } else {
+      dispatch({
+        type: "SET_TICKET_MOVIE_TITLE",
+        payload: selectedMovie(id)[0]?.title,
+      });
       navigate(`/ticket/${id}/payment`);
     }
   };
@@ -137,8 +153,9 @@ const MovieBooking = () => {
           <div className={styles.leftSeat}>
             {mock.slice(0, 14).map((item) => (
               <div
-                className={`${styles.seat} ${item.available ? styles.available : styles.booked
-                  }`}
+                className={`${styles.seat} ${
+                  item.available ? styles.available : styles.booked
+                }`}
                 id={item.available ? item.id : null}
                 seat={`${item.seat[0].number}${item.seat[0].row}`}
                 key={item.id}
@@ -150,8 +167,9 @@ const MovieBooking = () => {
           <div className={styles.centerSeat}>
             {mock.slice(14, 56).map((item) => (
               <div
-                className={`${styles.seat} ${item.available ? styles.available : styles.booked
-                  }`}
+                className={`${styles.seat} ${
+                  item.available ? styles.available : styles.booked
+                }`}
                 key={item.id}
                 id={item.available ? item.id : null}
                 seat={`${item.seat[0].number}${item.seat[0].row}`}
@@ -163,8 +181,9 @@ const MovieBooking = () => {
           <div className={styles.rightSeat}>
             {mock.slice(56, 70).map((item) => (
               <div
-                className={`${styles.seat} ${item.available ? styles.available : styles.booked
-                  }`}
+                className={`${styles.seat} ${
+                  item.available ? styles.available : styles.booked
+                }`}
                 key={item.id}
                 id={item.available ? item.id : null}
                 seat={`${item.seat[0].number}${item.seat[0].row}`}

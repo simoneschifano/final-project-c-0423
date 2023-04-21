@@ -37,7 +37,7 @@ body {
   }
 
   .details {
-    padding-bottom: 0px;
+    padding: 0px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -219,11 +219,15 @@ body {
   }
 
   .bookBtn {
-      @include def-button;
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
+    margin-top: 30px;
+    @include def-button;
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    @include tablet {
+      margin-top: 0;
+    }
   }
 
   .Stars {
