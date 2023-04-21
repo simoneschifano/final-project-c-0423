@@ -219,28 +219,11 @@ body {
   }
 
   .bookBtn {
-    margin-top: 30px;
-    padding: 10px;
-    background-color: $primary-color;
-    border-radius: 10px;
-    cursor: pointer;
-    box-shadow: 2px 2px 1px rgb(29, 29, 29);
-    border: none;
-    transition: all 0.35s;
-
-    @include tablet {
-      margin-left: 25%;
-    }
-    a:link,
-    a:active,
-    a:visited {
-      color: $background;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    &:hover {
-      background-color: $tertiary-color;
-    }
+      @include def-button;
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
   }
 
   .Stars {

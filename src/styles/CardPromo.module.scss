@@ -1,35 +1,78 @@
 .CardPromo {
-  background-color: $background;
-  margin: 0px;
-  .title {
-    color: $secondary-color;
-    text-align: center;
-  }
-  .wrapper {
-    display: flex;
-    justify-content: space-between;
-  }
-  .GoldCard {
-    width: 100%;
-    height: 100%;
-  }
-  .textbox {
-    font-size: 0.9rem;
-    text-align: center;
-    margin: 10px 10px;
-  }
-  .firstext {
-    color: $secondary-color;
-  }
-  .secondtext {
-    color: $primary-color;
-  }
-  .secondwrapper {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-  }
-  .secondtextbox {
-    text-align: center;
-  }
+	position: relative;
+	margin: 0px;
+	display: flex;
+	.title {
+		// position: absolute;
+		// top: 0;
+		color: $secondary-color;
+		text-align: center;
+	}
+	.wrapper {
+		display: flex;
+		justify-content: space-between;
+	}
+	.GoldCard {
+		width: 100%;
+		height: 100%;
+	}
+	.textbox {
+		font-size: 0.9rem;
+		text-align: center;
+		margin: 10px 10px;
+	}
+	.firstext {
+		color: $secondary-color;
+	}
+	.secondtext {
+		color: $primary-color;
+	}
+	.secondwrapper {
+		margin-top: 20px;
+		display: flex;
+		justify-content: space-between;
+	}
+	.secondtextbox {
+		text-align: center;
+	}
+}
+
+.CardsWrap {
+	@include tablet {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+
+		.wrapper {
+			display: none;
+		}
+		.secondwrapper {
+			display: none;
+		}
+
+		.wrapperDesk {
+			display: flex;
+			align-items: center;
+		}
+		.secondwrapperDesk {
+			display: flex;
+			align-items: center;
+		}
+
+		.BigCinema {
+			width: 200px;
+			height: 100px;
+		}
+	}
+}
+@media screen and (max-width: $tablet) {
+	.wrapperDesk {
+		display: none;
+	}
+	.secondwrapperDesk {
+		display: none;
+	}
+	.BigCinema {
+		display: none;
+	}
 }

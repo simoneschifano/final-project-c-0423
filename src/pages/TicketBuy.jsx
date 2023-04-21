@@ -14,12 +14,11 @@ const TicketBuy = () => {
 
   const onHandleSuccessModal = () => {
     !state.methodCheckControl.CC &&
-    !state.methodCheckControl.PP &&
-    !state.methodCheckControl.GP &&
-    !state.methodCheckControl.AP
+      !state.methodCheckControl.PP &&
+      !state.methodCheckControl.GP &&
+      !state.methodCheckControl.AP
       ? setModalState(true)
-      : // alert("Selezionare un metodo di pagamento")
-        dispatch({ type: "SET_PAYMENT_MODAL_OPEN" });
+      : dispatch({ type: "SET_PAYMENT_MODAL_OPEN" });
   };
 
   const aPChecked = () => dispatch({ type: "SET_AP_CHECK" });

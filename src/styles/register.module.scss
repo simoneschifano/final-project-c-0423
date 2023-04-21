@@ -1,13 +1,18 @@
 .RegisterPage {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   text-align: center;
   color: $secondary-color;
   height: 400px;
+  width: 100%;
 
   .registerForm {
+    @include desktop {
+      padding: 50px;
+      border-radius: $border;
+      background-color: rgba(40, 40, 40, 0.89);
+    }
     h3 {
       margin: 0 0 10px;
     }
@@ -41,6 +46,16 @@
     a {
       text-decoration: none;
       color: inherit;
+    }
+  }
+  .backgroundImage {
+    display: none;
+    width: 50%;
+  }
+
+  @include desktop {
+    .backgroundImage {
+      display: block;
     }
   }
 }

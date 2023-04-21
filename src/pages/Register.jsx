@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useReducer } from "react";
 import { initRegisteredUsers } from "../store/state";
 import { mainReducer } from "../store/reducer";
+import image from "../assets/image.png";
 
 const Register = () => {
   const [state, dispatch] = useReducer(mainReducer, initRegisteredUsers);
@@ -61,6 +62,7 @@ const Register = () => {
           onChange={onHandleEmailInput}
         />
       </form>
+      <img className={styles.backgroundImage} src={image} alt="image" />
     </div>
   );
 };

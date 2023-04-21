@@ -1,18 +1,23 @@
 .LoginPage {
   display: flex;
-  border: 1px solid red;
-
-  // justify-content: center;
-  // align-items: flex-start;
+  justify-content: space-around;
+  align-items: center;
   text-align: center;
   color: $secondary-color;
   height: 400px;
   gap: 20px;
+  width: 100%;
   .forms {
-    width: 35%;
-    padding: 50px;
-    border-radius: $border;
-    background-color: rgba(40, 40, 40, 0.89);
+    width: 80%;
+    @include tablet {
+      width: 50%;
+    }
+    @include desktop {
+      width: 20%;
+      padding: 50px;
+      border-radius: $border;
+      background-color: rgba(40, 40, 40, 0.89);
+    }
     .loginForm {
       width: 100%;
       h4,
@@ -46,9 +51,7 @@
   }
   .backgroundImage {
     display: none;
-    // position: ;
-    width: 250px;
-    // height: 50%;
+    width: 50%;
   }
 
   @include desktop {

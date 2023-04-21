@@ -97,99 +97,100 @@ const MovieBooking = () => {
 
   return (
     <div className={styles.MovieBooking}>
-      <h3>Acquista il tuo biglietto</h3>
-      <h2>{selectedMovie(id)[0]?.title}</h2>
-      <div className={styles.dateSection}>
-        <p>Scegli una data</p>
-        <ul>
-          {selectionDate.map((day) => (
-            <li
-              id={day.id}
-              key={day.id}
-              onClick={onHandleSelectedDate}
-              ref={addDateRef}
-            >
-              {day.content}
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div className={styles.hoursSection}>
-        <p>Scegli un orario</p>
-        <ul>
-          {selectionHour.map((hour) => (
-            <li
-              id={hour.id}
-              key={hour.id}
-              onClick={onHandleSelectedHour}
-              ref={addHourRef}
-            >
-              {hour.content}
-            </li>
-          ))}
-        </ul>
-      </div>
-      <img src={Ellipse} alt="Red Card" />
-      <div className={styles.roomWrapper}>
-        <div className={styles.leftSeat}>
-          {mock.slice(0, 14).map((item) => (
-            <div
-              className={`${styles.seat} ${
-                item.available ? styles.available : styles.booked
-              }`}
-              id={item.available ? item.id : null}
-              seat={`${item.seat[0].number}${item.seat[0].row}`}
-              key={item.id}
-              ref={addRef}
-              onClick={onHandleSelectedSeat}
-            ></div>
-          ))}
+      <div className={styles.date_time_wrapper}>
+        <h3>Acquista il tuo biglietto per:</h3>
+        <h2>{selectedMovie(id)[0]?.title}</h2>
+        <div className={styles.dateSection}>
+          <p>Scegli una data</p>
+          <ul>
+            {selectionDate.map((day) => (
+              <li
+                id={day.id}
+                key={day.id}
+                onClick={onHandleSelectedDate}
+                ref={addDateRef}
+              >
+                {day.content}
+              </li>
+            ))}
+          </ul>
         </div>
-        <div className={styles.centerSeat}>
-          {mock.slice(14, 56).map((item) => (
-            <div
-              className={`${styles.seat} ${
-                item.available ? styles.available : styles.booked
-              }`}
-              key={item.id}
-              id={item.available ? item.id : null}
-              seat={`${item.seat[0].number}${item.seat[0].row}`}
-              ref={addRef}
-              onClick={onHandleSelectedSeat}
-            ></div>
-          ))}
-        </div>
-        <div className={styles.rightSeat}>
-          {mock.slice(56, 70).map((item) => (
-            <div
-              className={`${styles.seat} ${
-                item.available ? styles.available : styles.booked
-              }`}
-              key={item.id}
-              id={item.available ? item.id : null}
-              seat={`${item.seat[0].number}${item.seat[0].row}`}
-              ref={addRef}
-              onClick={onHandleSelectedSeat}
-            ></div>
-          ))}
+        <div className={styles.hoursSection}>
+          <p>Scegli un orario</p>
+          <ul>
+            {selectionHour.map((hour) => (
+              <li
+                id={hour.id}
+                key={hour.id}
+                onClick={onHandleSelectedHour}
+                ref={addHourRef}
+              >
+                {hour.content}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
+      <div className={styles.seats_legend_wrapper}>
+        <img src={Ellipse} alt="Screen" />
+        <div className={styles.roomWrapper}>
+          <div className={styles.leftSeat}>
+            {mock.slice(0, 14).map((item) => (
+              <div
+                className={`${styles.seat} ${item.available ? styles.available : styles.booked
+                  }`}
+                id={item.available ? item.id : null}
+                seat={`${item.seat[0].number}${item.seat[0].row}`}
+                key={item.id}
+                ref={addRef}
+                onClick={onHandleSelectedSeat}
+              ></div>
+            ))}
+          </div>
+          <div className={styles.centerSeat}>
+            {mock.slice(14, 56).map((item) => (
+              <div
+                className={`${styles.seat} ${item.available ? styles.available : styles.booked
+                  }`}
+                key={item.id}
+                id={item.available ? item.id : null}
+                seat={`${item.seat[0].number}${item.seat[0].row}`}
+                ref={addRef}
+                onClick={onHandleSelectedSeat}
+              ></div>
+            ))}
+          </div>
+          <div className={styles.rightSeat}>
+            {mock.slice(56, 70).map((item) => (
+              <div
+                className={`${styles.seat} ${item.available ? styles.available : styles.booked
+                  }`}
+                key={item.id}
+                id={item.available ? item.id : null}
+                seat={`${item.seat[0].number}${item.seat[0].row}`}
+                ref={addRef}
+                onClick={onHandleSelectedSeat}
+              ></div>
+            ))}
+          </div>
+        </div>
 
-      <div className={styles.legend}>
-        <div>
-          <div className={`${styles.seat} ${styles.booked} `}></div>
-          <span>Non Disponibile</span>
+        <div className={styles.legend}>
+          <div>
+            <div className={`${styles.seat} ${styles.booked} `}></div>
+            <span>Non Disponibile</span>
+          </div>
+          <div>
+            <div className={`${styles.seat} ${styles.available} `}></div>
+            <span>Disponibile</span>
+          </div>
+          <div>
+            <div className={`${styles.seat} ${styles.active} `}></div>
+            <span>Selezione</span>
+          </div>
         </div>
-        <div>
-          <div className={`${styles.seat} ${styles.available} `}></div>
-          <span>Disponibile</span>
-        </div>
-        <div>
-          <div className={`${styles.seat} ${styles.active} `}></div>
-          <span>Selezione</span>
-        </div>
+        <button onClick={onHandlePayment}>Vai al pagamento</button>
       </div>
-      <button onClick={onHandlePayment}>Vai al pagamento</button>
 
       {checkState && (
         <ModalError
