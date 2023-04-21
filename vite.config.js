@@ -7,6 +7,7 @@ export default defineConfig({
   server: {
     host: true,
   },
+
   css: {
     preprocessorOptions: {
       scss: {
@@ -16,6 +17,4 @@ export default defineConfig({
       },
     },
   },
-
-  rewrites: [{ source: "/(.*)", destination: "/" }],
 });

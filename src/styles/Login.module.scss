@@ -1,18 +1,19 @@
 .LoginPage {
-  border: 2px solid red;
   display: flex;
-  // flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  border: 1px solid red;
+
+  // justify-content: center;
+  // align-items: flex-start;
   text-align: center;
   color: $secondary-color;
   height: 400px;
   gap: 20px;
   .forms {
-    border: 1px solid violet;
+    width: 35%;
     padding: 50px;
+    border-radius: $border;
+    background-color: rgba(40, 40, 40, 0.89);
     .loginForm {
-      border: 2px solid yellow;
       width: 100%;
       h4,
       p {
@@ -29,7 +30,6 @@
     }
 
     .registerSection {
-      border: 2px solid blue;
       width: 100%;
 
       p {
