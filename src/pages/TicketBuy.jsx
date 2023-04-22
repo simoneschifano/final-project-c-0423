@@ -7,6 +7,7 @@ import PaymentModal from "../components/paymentModal";
 import { useState, useContext } from "react";
 import { Context } from "../store/state";
 import ModalError from "../components/modalError";
+import image from "../assets/image.png";
 
 const TicketBuy = () => {
   const { state, dispatch } = useContext(Context);
@@ -14,9 +15,9 @@ const TicketBuy = () => {
 
   const onHandleSuccessModal = () => {
     !state.methodCheckControl.CC &&
-      !state.methodCheckControl.PP &&
-      !state.methodCheckControl.GP &&
-      !state.methodCheckControl.AP
+    !state.methodCheckControl.PP &&
+    !state.methodCheckControl.GP &&
+    !state.methodCheckControl.AP
       ? setModalState(true)
       : dispatch({ type: "SET_PAYMENT_MODAL_OPEN" });
   };
@@ -28,8 +29,8 @@ const TicketBuy = () => {
 
   return (
     <div className={styles.payment__wrapper}>
-      <h3>Termina e Paga</h3>
       <div className={styles.payment__section}>
+        <h3>Termina e Paga</h3>
         <p>Seleziona un metodo di pagamento</p>
         <form className={styles.payment__typo}>
           <label>
@@ -84,6 +85,7 @@ const TicketBuy = () => {
         />
         {state.paymentModalVisible && <PaymentModal />}
       </div>
+      <img className={styles.backgroundImage} src={image} alt="image" />
       {modalState && (
         <ModalError
           setCheckState={setModalState}

@@ -1,8 +1,7 @@
 .payment__wrapper {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   font-family: $roboto;
   color: $secondary-color;
 
@@ -10,16 +9,15 @@
     @include def-button;
   }
 
-  .payment__wrapper {
-    width: 100%;
-    text-align: center;
-  }
-
   .payment__section {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: rgba(40, 40, 40, 0.89);
+    width: 25%;
+    padding: 30px;
+    border-radius: $border;
     p {
       text-align: center;
       font-family: $roboto;
@@ -93,5 +91,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+  .backgroundImage {
+    display: none;
+    width: 50%;
+  }
+  @include desktop {
+    .backgroundImage {
+      display: block;
+    }
   }
 }

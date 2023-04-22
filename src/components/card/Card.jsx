@@ -4,27 +4,33 @@ import { useContext } from "react";
 import { Context } from "../../store/state";
 
 const Card = ({ data }) => {
-  const navigate = useNavigate();
+	const navigate = useNavigate();
 
-  const { dispatch } = useContext(Context);
+	const { dispatch } = useContext(Context);
 
-  const onHandleClick = () => {
-    navigate(`/movie/${data.id}`);
-    dispatch({ type: "SET_MODAL_CLOSE" });
-  };
+	const onHandleClick = () => {
+		navigate(`/movie/${data.id}`);
+		dispatch({ type: "SET_MODAL_CLOSE" });
+	};
 
-  return (
-    <div className={styles.Card}>
-      <img
-        className={styles.img}
-        src={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
-        alt="{movie.title}"
-        onClick={onHandleClick}
-      />
+	const onHandleIfRedirect = () => {
+		localStorage.getItem("auth")
+			? navigate(`/ticket/${data.id}/booking`)
+			: navigate("/login");
+	};
 
-      <Link to={`/ticket/${data.id}/booking`}>Acquista il biglietto</Link>
-    </div>
-  );
+	return (
+		<div className={styles.Card}>
+			<img
+				className={styles.img}
+				src={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
+				alt="{movie.title}"
+				onClick={onHandleClick}
+			/>
+
+			<a onClick={onHandleIfRedirect}>Acquista il biglietto</a>
+		</div>
+	);
 };
 
 export default Card;

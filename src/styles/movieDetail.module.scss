@@ -1,366 +1,372 @@
 body {
-  font-family: "Netflix Sans";
-  font-weight: 400;
-  font-display: optional;
-  src: url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Rg.woff2)
-      format("woff2"),
-    url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Rg.woff)
-      format("woff");
-  color: goldenrod;
-  display: flex;
-  flex-direction: column;
-  margin: 0;
+	font-family: "Netflix Sans";
+	font-weight: 400;
+	font-display: optional;
+	src: url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Rg.woff2)
+			format("woff2"),
+		url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Rg.woff)
+			format("woff");
+	color: goldenrod;
+	display: flex;
+	flex-direction: column;
+	margin: 0;
 }
 
 .movieDet {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 
-  .trailerMobile {
-    border: none;
-    border-radius: 4px;
-    @include tablet {
-      display: none;
-    }
-  }
+	.trailerMobile {
+		border: none;
+		border-radius: 4px;
+		@include tablet {
+			display: none;
+		}
+	}
 
-  .trailerDesktop {
-    display: none;
-    @include tablet {
-      border: none;
-      border-radius: 4px;
-      display: block;
-      width: 80%;
-    }
-  }
+	.trailerDesktop {
+		display: none;
+		@include tablet {
+			border: none;
+			border-radius: 4px;
+			display: block;
+			width: 80%;
+		}
+	}
 
-  .details {
-    padding-bottom: 0px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    @include tablet {
-      align-items: flex-start;
-      position: relative;
-      padding: 2% 10%;
-    }
+	.details {
+		padding: 0px;
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		@include tablet {
+			align-items: flex-start;
+			position: relative;
+			padding: 2% 10%;
+		}
 
-    .starWrap {
-      .Stars {
-        @include tablet {
-          display: none;
-        }
-      }
-    }
+		.starWrap {
+			.Stars {
+				@include tablet {
+					display: none;
+				}
+			}
+		}
 
-    .title_rating {
-      .infoWrapper {
-        display: none;
-        @include tablet {
-          display: flex;
-          justify-content: space-between;
-          width: 100%;
-          align-items: baseline;
-          .leftInfo {
-            text-align: left;
-          }
-        }
-        .genresDesktop {
-          @include tablet {
-            width: 291px;
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-          }
-          p {
-            @include tablet {
-              margin: 0;
-              width: 80px;
-              background-color: $primary-color;
-              color: $background;
-              font-weight: bold;
-              padding: 5px 15px;
-              border-radius: 15px;
-            }
-          }
-        }
-      }
-      @include tablet {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 60%;
-      }
-    }
+		.title_rating {
+			.infoWrapper {
+				display: none;
+				@include tablet {
+					display: flex;
+					justify-content: space-between;
+					width: 100%;
+					align-items: baseline;
+					.leftInfo {
+						text-align: left;
+					}
+				}
+				.genresDesktop {
+					@include tablet {
+						width: 291px;
+						display: flex;
+						justify-content: space-evenly;
+						align-items: center;
+						flex-wrap: wrap;
+						gap: 10px;
+					}
+					p {
+						@include tablet {
+							margin: 0;
+							width: 80px;
+							background-color: $primary-color;
+							color: $background;
+							font-weight: bold;
+							padding: 5px 15px;
+							border-radius: 15px;
+						}
+					}
+				}
+			}
+			@include tablet {
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				width: 60%;
+			}
+		}
 
-    .tags {
-      display: flex;
-      justify-content: space-between;
-      gap: 90px;
-      @include tablet {
-        // margin-top: 20px;
-        width: 60%;
-        font-weight: bold;
-      }
-    }
-    .title {
-      font-size: 26px;
-      justify-content: center;
-      @include tablet {
-        align-self: flex-start;
-        font-size: 2rem;
-        margin: 10px;
-        display: none;
-        height: 20px;
-        border: 2px solid #181818;
-      }
-    }
+		.tags {
+			display: flex;
+			justify-content: space-between;
+			gap: 90px;
+			@include tablet {
+				// margin-top: 20px;
+				width: 60%;
+				font-weight: bold;
+			}
+		}
+		.title {
+			font-size: 26px;
+			justify-content: center;
+			@include tablet {
+				align-self: flex-start;
+				font-size: 2rem;
+				margin: 10px;
+				display: none;
+				height: 20px;
+				border: 2px solid #181818;
+			}
+		}
 
-    .genres {
-      width: 291px;
-      display: flex;
-      justify-content: space-evenly;
-      flex-wrap: wrap;
-      gap: 15px 0;
-      @include tablet {
-        display: none;
-      }
-      p {
-        margin: 0;
-        width: 80px;
-        background-color: $primary-color;
-        color: $background;
-        font-weight: bold;
-        padding: 5px 15px;
-        border-radius: 15px;
-      }
-    }
+		.genres {
+			width: 291px;
+			display: flex;
+			justify-content: space-evenly;
+			flex-wrap: wrap;
+			gap: 15px 0;
+			@include tablet {
+				display: none;
+			}
+			p {
+				margin: 0;
+				width: 80px;
+				background-color: $primary-color;
+				color: $background;
+				font-weight: bold;
+				padding: 5px 15px;
+				border-radius: 15px;
+			}
+		}
 
-    .description {
-      margin: 0;
-      padding: 25px;
-      color: $secondary-color;
-      font-size: 1rem;
-      @include tablet {
-        width: 60%;
-      }
-    }
-    .text {
-      align-self: flex-start;
-      padding-left: 8%;
-      @include tablet {
-        display: none;
-      }
-    }
+		.description {
+			margin: 0;
+			padding: 25px;
+			color: $secondary-color;
+			font-size: 1rem;
+			@include tablet {
+				width: 60%;
+			}
+		}
+		.text {
+			align-self: flex-start;
+			padding-left: 8%;
+			@include tablet {
+				display: none;
+			}
+		}
 
-    .castWrapper {
-      width: 330px;
-      display: flex;
-      gap: 20px;
-      overflow-x: auto;
+		.castWrapper {
+			width: 330px;
+			display: flex;
+			gap: 20px;
+			overflow-x: auto;
 
-      @include tablet {
-        display: none;
-      }
-      .actorImg {
-        margin-bottom: 20px;
-        img {
-          object-fit: cover;
-          border-radius: 100%;
-          height: 50px;
-          width: 50px;
-        }
-        p {
-          margin: 5px 0;
-        }
-        .name {
-          font-size: 0.8rem;
-        }
-        .character {
-          font-size: 0.7rem;
-        }
-      }
-    }
+			@include tablet {
+				display: none;
+			}
+			.actorImg {
+				margin-bottom: 20px;
+				img {
+					object-fit: cover;
+					border-radius: 100%;
+					height: 50px;
+					width: 50px;
+				}
+				p {
+					margin: 5px 0;
+				}
+				.name {
+					font-size: 0.8rem;
+				}
+				.character {
+					font-size: 0.7rem;
+				}
+			}
+		}
 
-    .castWrapperDesktop {
-      display: none;
-      @include tablet {
-        margin: 25px;
-        display: flex;
-        flex-direction: column;
-        right: 4%;
-        position: absolute;
-        top: 40px;
-        height: 85%;
-        overflow-y: auto;
-        .actorImg {
-          @include tablet {
-            margin-bottom: 20px;
-            display: flex;
-            gap: 20px;
-          }
-          img {
-            @include tablet {
-              object-fit: cover;
-              border-radius: 100%;
-              height: 50px;
-              width: 50px;
-            }
-          }
-        }
-      }
-    }
-  }
+		.castWrapperDesktop {
+			display: none;
+			@include tablet {
+				margin: 25px;
+				display: flex;
+				flex-direction: column;
+				right: 4%;
+				position: absolute;
+				top: 40px;
+				height: 85%;
+				overflow-y: auto;
+				.actorImg {
+					@include tablet {
+						margin-bottom: 20px;
+						display: flex;
+						gap: 20px;
+					}
+					img {
+						@include tablet {
+							object-fit: cover;
+							border-radius: 100%;
+							height: 50px;
+							width: 50px;
+						}
+					}
+				}
+			}
+		}
+	}
 
-  .bookBtn {
-      @include def-button;
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
-  }
+	.bookBtn {
+		margin-top: 30px;
+		@include def-button;
+		a {
+			display: block;
+			width: 100%;
+			text-decoration: none;
+			color: inherit;
+		}
+		@include tablet {
+			margin-top: 0;
+		}
+	}
 
-  .Stars {
-    --percent: calc(var(--rating) / 5 * 100%);
-    display: inline-block;
-    font-size: var(--star-size);
-    font-family: Times;
-    line-height: 1;
-  }
+	.Stars {
+		--percent: calc(var(--rating) / 5 * 100%);
+		display: inline-block;
+		font-size: var(--star-size);
+		font-family: Times;
+		line-height: 1;
+	}
 
-  .Stars::before {
-    content: "★★★★★";
-    letter-spacing: 2px;
-    background: linear-gradient(
-      90deg,
-      var(--star-background) var(--percent),
-      var(--star-color) var(--percent)
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+	.Stars::before {
+		content: "★★★★★";
+		letter-spacing: 2px;
+		background: linear-gradient(
+			90deg,
+			var(--star-background) var(--percent),
+			var(--star-color) var(--percent)
+		);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
 }
 
 .header {
-  margin: 0;
-  padding-left: 15px;
-  background-color: black;
-  height: 90px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+	margin: 0;
+	padding-left: 15px;
+	background-color: black;
+	height: 90px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
 }
 
 .go-back {
-  text-decoration: none;
-  color: inherit;
-  font-size: 28px;
+	text-decoration: none;
+	color: inherit;
+	font-size: 28px;
 }
 
 .who-are-we {
-  text-decoration: none;
-  font-size: 28px;
-  color: goldenrod;
+	text-decoration: none;
+	font-size: 28px;
+	color: goldenrod;
 }
 
 .showCard {
-  display: flex;
-  gap: 30px;
-  align-self: center;
+	display: flex;
+	gap: 30px;
+	align-self: center;
 }
 .showCard::after {
-  background: linear-gradient(
-    90deg,
-    #181818 10%,
-    hsla(0, 0%, 9%, 0.98) 20%,
-    hsla(0, 0%, 9%, 0.98) 25%,
-    hsla(0, 0%, 9%, 0.95) 35%,
-    hsla(0, 0%, 9%, 0.94) 40%,
-    hsla(0, 0%, 9%, 0.92) 45%,
-    hsla(0, 0%, 9%, 0.9) 50%,
-    hsla(0, 0%, 9%, 0.87) 55%,
-    hsla(0, 0%, 9%, 0.82) 60%,
-    hsla(0, 0%, 9%, 0.75) 65%,
-    hsla(0, 0%, 9%, 0.63) 70%,
-    hsla(0, 0%, 9%, 0.45) 75%,
-    hsla(0, 0%, 9%, 0.27) 80%,
-    hsla(0, 0%, 9%, 0.15) 85%,
-    hsla(0, 0%, 9%, 0.08) 90%,
-    hsla(0, 0%, 9%, 0.03) 95%,
-    hsla(0, 0%, 9%, 0)
-  );
-  content: "";
-  height: 88.2%;
-  left: 0;
-  top: 90px;
-  position: absolute;
-  width: 100%;
+	background: linear-gradient(
+		90deg,
+		#181818 10%,
+		hsla(0, 0%, 9%, 0.98) 20%,
+		hsla(0, 0%, 9%, 0.98) 25%,
+		hsla(0, 0%, 9%, 0.95) 35%,
+		hsla(0, 0%, 9%, 0.94) 40%,
+		hsla(0, 0%, 9%, 0.92) 45%,
+		hsla(0, 0%, 9%, 0.9) 50%,
+		hsla(0, 0%, 9%, 0.87) 55%,
+		hsla(0, 0%, 9%, 0.82) 60%,
+		hsla(0, 0%, 9%, 0.75) 65%,
+		hsla(0, 0%, 9%, 0.63) 70%,
+		hsla(0, 0%, 9%, 0.45) 75%,
+		hsla(0, 0%, 9%, 0.27) 80%,
+		hsla(0, 0%, 9%, 0.15) 85%,
+		hsla(0, 0%, 9%, 0.08) 90%,
+		hsla(0, 0%, 9%, 0.03) 95%,
+		hsla(0, 0%, 9%, 0)
+	);
+	content: "";
+	height: 88.2%;
+	left: 0;
+	top: 90px;
+	position: absolute;
+	width: 100%;
 }
 
 .media {
-  background-position: 50%;
-  background-repeat: no-repeat;
-  background-size: contain;
-  height: fit-content;
-  max-height: 635px;
-  position: absolute;
-  left: 25%;
-  width: 75%;
+	background-position: 50%;
+	background-repeat: no-repeat;
+	background-size: contain;
+	height: fit-content;
+	max-height: 635px;
+	position: absolute;
+	left: 25%;
+	width: 75%;
 }
 
 .img-desc {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-width: 800px;
-  min-width: 500px;
-  padding: 16px 32px 64px 0;
-  position: relative;
-  top: 220px;
-  left: 30px;
-  width: 35%;
-  z-index: 2;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	max-width: 800px;
+	min-width: 500px;
+	padding: 16px 32px 64px 0;
+	position: relative;
+	top: 220px;
+	left: 30px;
+	width: 35%;
+	z-index: 2;
 }
 
 :root {
-  --star-size: 30px;
-  --star-color: #fff;
-  --star-background: #fc0;
+	--star-size: 30px;
+	--star-color: #fff;
+	--star-background: #fc0;
 }
 
 .valutazione {
-  display: flex;
-  gap: 5px;
+	display: flex;
+	gap: 5px;
 }
 .valutazione span {
-  font-size: 14px;
-  color: white;
+	font-size: 14px;
+	color: white;
 }
 
 .votes_count {
-  font-size: 14px;
-  margin: 0;
-  color: white;
+	font-size: 14px;
+	margin: 0;
+	color: white;
 }
 ::-webkit-scrollbar {
-  height: 6px;
-  width: 5px;
+	height: 6px;
+	width: 5px;
 }
 
 ::-webkit-scrollbar-track {
-  border-radius: 10px;
-  background-color: rgba(244, 243, 238, 0.933);
+	border-radius: 10px;
+	background-color: rgba(244, 243, 238, 0.933);
 }
 
 ::-webkit-scrollbar-thumb {
-  border-top-right-radius: 2px;
-  background: #3f5451;
-  box-shadow: 0 0 1px $tertiary-color;
+	border-top-right-radius: 2px;
+	background: #3f5451;
+	box-shadow: 0 0 1px $tertiary-color;
 }
