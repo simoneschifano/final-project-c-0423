@@ -12,21 +12,19 @@ export const initialState = {
   },
   modalContent: null,
   visible: false,
-  ticketData: [
-    {
-      title: "",
-      date: "",
-      hour: "",
-      seat: "",
-    },
-  ],
+  ticketData: {
+    title: "",
+    date: "",
+    hour: "",
+    seat: [],
+  },
   paymentModalVisible: false,
   methodCheckControl: {
     CC: false,
     PP: false,
     GP: false,
     AP: false,
-  }
+  },
 };
 
 export const initRegisteredUsers = {

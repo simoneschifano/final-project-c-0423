@@ -5,7 +5,7 @@ import { Context } from "../../store/state";
 
 const PaymentModal = () => {
   const navigate = useNavigate();
-  const { dispatch } = useContext(Context);
+  const { state, dispatch } = useContext(Context);
 
   const onHandleCloseModal = () => {
     dispatch({ type: "SET_PAYMENT_MODAL_CLOSE" });
@@ -21,8 +21,12 @@ const PaymentModal = () => {
         <p className={styles.success_message}>
           Acquisto effettuato con successo!
         </p>
-        {/* <p>Hai prenotato i posti per giorno alle ore per lo spettacolo di:</p>
-                <h3>titolo film</h3> */}
+        <p>
+          Hai prenotato i posti per giorno{" "}
+          <strong>{state.ticketData.date} </strong> alle ore{" "}
+          <strong>{state.ticketData.hour}</strong> per lo spettacolo:
+        </p>
+        <h3>{state.ticketData.title} </h3>
       </div>
     </div>
   );

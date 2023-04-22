@@ -75,7 +75,9 @@ const TicketBuy = () => {
           </label>
         </form>
         <div className={styles.total_wrapper}>
-          <h3 className={styles.total}>Totale: $20,00 </h3>
+          <h3 className={styles.total}>
+            Totale: ${state.ticketData.seat.length * 6}{" "}
+          </h3>
         </div>
         <input
           onClick={onHandleSuccessModal}
