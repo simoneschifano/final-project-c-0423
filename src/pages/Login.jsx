@@ -28,6 +28,7 @@ const Login = () => {
     <div className={styles.LoginPage}>
       <div className={styles.forms}>
         <form className={styles.loginForm} onSubmit={onHandleSubmit}>
+          <p>Accedi per prenotare il tuo biglietto</p>
           <h3>Login</h3>
           <input
             className={styles.textInput}
