@@ -11,6 +11,9 @@
   z-index: 2;
   position: fixed;
   height: 64px;
+  @include tablet {
+    padding: 35px 10px;
+  }
   .logo {
     // width: 60%;
     cursor: pointer;

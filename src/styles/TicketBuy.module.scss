@@ -14,10 +14,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(40, 40, 40, 0.89);
-    width: 25%;
-    padding: 30px;
-    border-radius: $border;
+    @include desktop {
+      background-color: rgba(40, 40, 40, 0.89);
+      width: 25%;
+      padding: 30px;
+      border-radius: $border;
+    }
     p {
       text-align: center;
       font-family: $roboto;

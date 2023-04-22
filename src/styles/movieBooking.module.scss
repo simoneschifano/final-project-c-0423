@@ -8,7 +8,6 @@
     flex-direction: row;
     justify-content: center;
     gap: 500px;
-
   }
   h3,
   p {
@@ -61,14 +60,14 @@
   }
 
   button {
-      @include def-button;
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
+    @include def-button;
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
   }
 
-  .date_time_wrapper{
+  .date_time_wrapper {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -82,17 +81,17 @@
     }
   }
 
-  .seats_legend_wrapper{
+  .seats_legend_wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 20px;
 
-    img{
+    img {
       @include desktop {
         margin: 70px 0px;
-        transform: scale(1.5);      
+        transform: scale(1.5);
       }
     }
 
@@ -107,7 +106,6 @@
     display: flex;
 
     @include desktop {
-
       transform: scale(1.5);
     }
 
@@ -155,6 +153,9 @@
       }
       span {
         font-size: 0.6rem;
+        @include tablet {
+          font-size: 1rem;
+        }
       }
       display: flex;
       align-items: center;

@@ -31,22 +31,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    .title {
-      margin-bottom: 20px;
-      width: calc(100% - 16px);
+    justify-content: center;
+    .select {
+      width: calc(60% - 16px);
     }
     .quote {
       display: block;
       width: 80%;
 
       blockquote {
-        padding-top: 20px;
+        // padding-top: 20px;
         color: white;
         font-weight: bold;
         text-align: center;
-        font-size: 1.3rem;
+        font-size: 1.5rem;
       }
-      p {
+      h3 {
         text-align: right;
         color: white;
       }

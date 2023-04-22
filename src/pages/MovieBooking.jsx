@@ -79,10 +79,18 @@ const MovieBooking = () => {
     selectedSeatRef.current[e.target.id - 1].classList.toggle(
       `${styles.active}`
     );
-    dispatch({
-      type: "SET_TICKET_SEAT",
-      payload: e.target.attributes.seat.value,
-    });
+    if (!state.ticketData.seat.includes(e.target.attributes.seat.value)) {
+      dispatch({
+        type: "SET_TICKET_SEAT",
+        payload: e.target.attributes.seat.value,
+      });
+    } else {
+      const index = state.ticketData.seat.indexOf(
+        e.target.attributes.seat.value
+      );
+      return state.ticketData.seat.splice(index, 1);
+    }
+    console.log(state.ticketData.seat);
   };
   const onHandlePayment = () => {
     const dataCheck = selectedDateRef.current.filter((li) => li.className);

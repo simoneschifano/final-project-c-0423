@@ -10,6 +10,7 @@ const PaymentModal = () => {
   const onHandleCloseModal = () => {
     dispatch({ type: "SET_PAYMENT_MODAL_CLOSE" });
     navigate(`/`);
+    state.ticketData.seat.length = 0;
   };
 
   return (
@@ -18,12 +19,17 @@ const PaymentModal = () => {
         <span onClick={onHandleCloseModal} className={styles.close}>
           &times;
         </span>
-        <p className={styles.success_message}>
+        <h3 className={styles.success_message}>
           Acquisto effettuato con successo!
-        </p>
+        </h3>
+        <p>Hai prenotato i posti:</p>
+        {state.ticketData.seat.map((seat) => (
+          <strong>
+            <p>{seat}</p>
+          </strong>
+        ))}
         <p>
-          Hai prenotato i posti per giorno{" "}
-          <strong>{state.ticketData.date} </strong> alle ore{" "}
+          per giorno <strong>{state.ticketData.date} </strong> alle ore{" "}
           <strong>{state.ticketData.hour}</strong> per lo spettacolo:
         </p>
         <h3>{state.ticketData.title} </h3>
