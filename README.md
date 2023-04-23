@@ -67,7 +67,7 @@ In particolare, una volta stabiliti i task, ogni componente del team ha prosegui
 dall'intero gruppo e, nel caso di ostacoli, si è proceduto al superamento degli stessi attraverso una programmazione di gruppo in condivisione.
 L'approccio ha favorito il completamento dei task e la realizzazione finale del progetto.
 
--Chiara Nicoletti <a href="">Linkedin </a> · <a href="">GitHub </a> <br/>
+-Chiara Nicoletti <a href="https://www.linkedin.com/in/chiara-nicoletti/">Linkedin </a> · <a href="https://github.com/KalaPatel">GitHub </a> <br/>
 -Erica Candido <a href="https://www.linkedin.com/in/erica-candido-8085a4259/">Linkedin </a> · <a href="https://github.com/EricaCandido">GitHub </a><br/>
 -Mattia Ninì <a href="">Linkedin </a> · <a href="">GitHub </a><br/>
 -Valentina Urzì <a href="https://www.linkedin.com/in/valentina-urz%C3%AC-0a3a86183/">Linkedin </a> · <a href="https://github.com/ValentinaUrzi">GitHub </a><br/>
