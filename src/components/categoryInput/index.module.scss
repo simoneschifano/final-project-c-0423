@@ -7,7 +7,7 @@
     padding-bottom: 10px;
   }
   .select {
-    @include def-input(calc(100% - 16px));
+    @include def-input(calc(100% - 5px));
 
     //TO SOLVE
     .option {

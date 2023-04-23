@@ -6,26 +6,30 @@
   width: 100%;
   justify-content: space-between;
   box-sizing: border-box;
-  color: $primary-color;
+  color: $text-color;
   background: $background;
   z-index: 2;
   position: fixed;
   height: 64px;
+  .Link:hover{
+    color: $primary-color;
+  }
   @include tablet {
     padding: 35px 10px;
   }
   .logo {
-    // width: 60%;
     cursor: pointer;
     img {
       width: 152px;
       height: 40px;
     }
   }
+
+  .deskLeftNav{
+    margin-top: 10px;
+  }
 }
-// .fixed {
-//   position: fixed;
-// }
+
 @media screen and (max-width: 500px) {
   .icons_mobile {
     svg {
@@ -33,7 +37,7 @@
       height: 30px;
     }
     width: 40%;
-    color: $primary-color;
+    color: $text-color;
     display: flex;
     justify-content: space-evenly;
     gap: 10px;
@@ -57,7 +61,7 @@
     display: none;
   }
   .links_desktop {
-    gap: 10px;
+    gap: 20px;
     display: flex;
     cursor: pointer;
     .Link {
@@ -72,11 +76,16 @@
     }
   }
   .icons_desktop {
+    margin-right: 20px;
     display: flex;
+    align-items: center;
     gap: 10px;
     svg {
       height: 30px;
       width: 30px;
+      &:hover{
+        color: $primary-color;
+      }
     }
   }
   .deskLeftNav {

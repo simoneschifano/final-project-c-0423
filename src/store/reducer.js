@@ -6,6 +6,7 @@ export const mainReducer = (state, action) => {
         movieListData: action.payload,
       };
     case "SET_GENRE_LIST":
+      localStorage.setItem("genreList", JSON.stringify(action.payload))
       return {
         ...state,
         genreList: action.payload,
@@ -85,26 +86,6 @@ export const mainReducer = (state, action) => {
       return {
         ...state,
         paymentModalVisible: false,
-      };
-    case "SET_CC_CHECK":
-      return {
-        ...state,
-        methodCheckControl: { CC: true, PP: false, GP: false, AP: false },
-      };
-    case "SET_PP_CHECK":
-      return {
-        ...state,
-        methodCheckControl: { CC: false, PP: true, GP: false, AP: false },
-      };
-    case "SET_GP_CHECK":
-      return {
-        ...state,
-        methodCheckControl: { CC: false, PP: false, GP: true, AP: false },
-      };
-    case "SET_AP_CHECK":
-      return {
-        ...state,
-        methodCheckControl: { CC: false, PP: false, GP: false, AP: true },
       };
   }
 };

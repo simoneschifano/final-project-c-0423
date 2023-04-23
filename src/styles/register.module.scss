@@ -4,17 +4,20 @@
   align-items: center;
   text-align: center;
   color: $secondary-color;
-  height: 400px;
   width: 100%;
-
+  min-height: 350px;
+  
   .registerForm {
     @include desktop {
       padding: 50px;
+      display: flex;
+      gap: 10px;
       border-radius: $border;
       background-color: rgba(40, 40, 40, 0.89);
     }
     h3 {
       margin: 0 0 10px;
+      color: $primary-color;
     }
     display: flex;
     flex-direction: column;
@@ -27,27 +30,34 @@
       flex-direction: row;
       justify-content: center;
       gap: 5px;
-
-      width: 84%;
+      width: 75%;
       .textInput {
-        @include def-input(100%);
+        @include def-input(50%);
       }
     }
+
+    @include mobile{
+      .anagrafe {
+        width: 95%;
+      }
+    }
+
+    @include desktop {
+      .anagrafe {
+        width: 75%;
+      }
+    }
+
     .textInput {
       width: 250px;
       margin-bottom: 10px;
     }
   }
   .Button {
-    // width: 100px;
-    // height: 30px;
+    margin-top: 15px;
+    color: $text-color;
+    @include def-button}
 
-    @include def-button;
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-  }
   .backgroundImage {
     display: none;
     width: 50%;

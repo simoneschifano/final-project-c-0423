@@ -1,6 +1,6 @@
 .AccModal {
   position: absolute;
-
+  color: $text-color;
   height: 100%;
   width: 100%;
   .yes_auth {
@@ -21,9 +21,9 @@
     }
     .accOpts {
       padding: 0;
-
       display: flex;
       flex-direction: column;
+      color: $text-color;
       gap: 15px;
       list-style-type: none;
       cursor: pointer;

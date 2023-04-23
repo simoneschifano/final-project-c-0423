@@ -5,7 +5,7 @@ const Footer = () => {
     <div className={styles.Footer}>
       <img className={styles.logo} src={logo} alt="logo" />
       <div className={styles.text}>
-        <p>Contattaci</p>
+        <a href="/about-us">About us</a>
         <p>Segnala un bug</p>
         <p>Tutti i nostri cinema</p>
       </div>

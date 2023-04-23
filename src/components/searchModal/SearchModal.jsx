@@ -11,46 +11,37 @@ const SearchModal = () => {
     movie.title.toLowerCase().includes(submitMovieName)
   );
 
-  const onHandleChangeName = (e) => setInputMovieName(() => e.target.value);
+  const onHandleChangeName = (e) => setInputMovieName(() => (e.target.value.toLowerCase().trim()));
   const [inputControl, setInputControl] = useState(false);
   const onSubmitSearch = (e) => {
     e.preventDefault();
+    setInputControl(true);
     setSubmitMovieName(inputMovieName.toLowerCase());
-
-    if (
-      submitMovieName == "" ||
-      submitMovieName.length == 0 ||
-      filterMovies.length == 0
-    ) {
-      setInputControl(!inputControl);
-    }
   };
-
   return (
     <div className={styles.wrapper}>
       <form action="">
-        <h3 className={styles.title}>Cerca un film</h3>
+        <h3 className={styles.title}>Cerca i film in sala</h3>
         <input
           className={styles.searchInput}
           type="text"
           name="movieInput"
+          placeholder="Cerca un film"
           onChange={onHandleChangeName}
         />
-        <input
+        <button
           onClick={onSubmitSearch}
           className={styles.searchBtn}
           type="submit"
-          value={"Cerca"}
-        />
+        >Cerca</button>
       </form>
       <div className={styles.cardWrapper}>
         {submitMovieName !== "" &&
-          submitMovieName !== " " &&
           filterMovies.length !== 0 &&
           filterMovies.map((movie) => (
             <CardSearch data={movie} key={movie.id} />
           ))}
-        {inputControl && <p>La ricerca non ha prodotto alcun risultato</p>}
+        {(inputControl && (filterMovies.length === 0 || submitMovieName == "")) && <p>Questo film non è attualmente in programmazione in sala</p>}
       </div>
     </div>
   );

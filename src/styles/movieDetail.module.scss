@@ -38,15 +38,20 @@ body {
 
   .details {
     padding: 0px;
-    text-align: center;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    @include mobile {
+      margin-top: 20px;
+      text-align: center;
+      width: 100%;
+    }
     @include tablet {
+    margin-top: 40px;
+      width: 75%;
+      text-align: left;
       align-items: flex-start;
       position: relative;
-      padding: 2% 15%;
     }
 
     .starWrap {
@@ -56,7 +61,14 @@ body {
         }
       }
     }
+    .details_title_rating{
 
+      @include tablet {
+        width: 60%;
+        margin: 0;
+      }
+      margin: 0 20px;
+    }
     .title_rating {
       .infoWrapper {
         display: none;
@@ -67,12 +79,10 @@ body {
           align-items: baseline;
           .leftInfo {
             text-align: left;
-            text-align: left;
             display: block;
             .title {
               @include tablet {
                 margin-left: 0;
-                margin-bottom: 20px;
                 font-size: 1.8rem;
                 display: block;
               }
@@ -91,7 +101,6 @@ body {
         }
         .genresDesktop {
           @include tablet {
-            width: 291px;
             display: flex;
             justify-content: space-evenly;
             align-items: center;
@@ -99,6 +108,7 @@ body {
             gap: 10px;
           }
           p {
+            text-align: center;
             @include tablet {
               margin: 0;
               width: 90px;
@@ -115,17 +125,22 @@ body {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        width: 70%;
+        width: 100%;
       }
     }
 
     .tags {
       display: flex;
-      justify-content: space-between;
+      color: $text-color;
       gap: 90px;
+      @include mobile {
+        justify-content: space-around;
+        
+      }
       @include tablet {
+        justify-content: space-between;
         // margin-top: 20px;
-        width: 60%;
+        width: 100%;
         font-weight: bold;
       }
     }
@@ -135,15 +150,13 @@ body {
       @include tablet {
         align-self: flex-start;
         font-size: 2rem;
-        margin: 10px;
+        margin-top: 0;
+        margin-bottom: 10px;
         display: none;
-        height: 20px;
-        border: 2px solid #181818;
       }
     }
 
     .genres {
-      width: 291px;
       display: flex;
       justify-content: space-evenly;
       flex-wrap: wrap;
@@ -151,6 +164,7 @@ body {
       @include tablet {
         display: none;
       }
+      
       p {
         margin: 0;
         width: 95px;
@@ -165,26 +179,27 @@ body {
     .description {
       margin: 0;
       padding: 25px;
-      color: $secondary-color;
+      color: $text-color;
       font-size: 1rem;
+
       @include tablet {
-        width: 60%;
         padding: 0 0 20px 0;
       }
     }
     .text {
       align-self: flex-start;
-      padding-left: 8%;
       @include tablet {
         display: none;
       }
     }
 
     .castWrapper {
-      width: 330px;
+      width: 100%;
       display: flex;
       gap: 20px;
       overflow-x: auto;
+      flex-wrap: wrap;
+      justify-content: center;
 
       @include tablet {
         display: none;
@@ -209,52 +224,15 @@ body {
       }
     }
 
-    .castWrapperDesktop {
-      display: none;
-      @include tablet {
-        text-shadow: 2px 2px 6px #000;
-        margin: 25px;
-        display: flex;
-        flex-direction: column;
-        right: 9%;
-        position: absolute;
-        top: 40px;
-        height: 85%;
-        overflow-y: auto;
-        .actorImg {
-          @include tablet {
-            margin-bottom: 20px;
-            display: flex;
-            gap: 20px;
-          }
-          img {
-            @include tablet {
-              object-fit: cover;
-              border-radius: 100%;
-              height: 50px;
-              width: 50px;
-            }
-          }
-        }
-        p {
-          @include tablet {
-            text-shadow: 2px 2px 7px #000;
-            margin-right: 10px;
-          }
-        }
-      }
-    }
+    
   }
 
   .bookBtn {
     margin-top: 30px;
     @include def-button;
-    a {
-      display: block;
-      width: 100%;
-      text-decoration: none;
-      color: inherit;
-    }
+    width: 100%;
+    color: $background;
+
     @include tablet {
       z-index: 1;
       margin-top: 0;
@@ -398,4 +376,47 @@ body {
   border-top-right-radius: 2px;
   background: #3f5451;
   box-shadow: 0 0 1px $tertiary-color;
+}
+.castWrapperDesktop {
+  display: none;
+  @include tablet {
+    display: block;
+    width: 30%;
+    .textCast{
+      margin-top: 0;
+      font-weight: bold;
+    }
+    .castWrapperActors{
+      text-shadow: 2px 2px 6px #000;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      position: relative;
+      gap: 10px;
+    .actorImg {
+      @include tablet {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      img {
+        @include tablet {
+          object-fit: cover;
+          border-radius: 100%;
+          height: 50px;
+          width: 50px;
+        }
+      }
+    }
+    p {
+      @include tablet {
+        max-width: 70px;
+        text-shadow: 2px 2px 7px #000;
+        color: $text-color;
+        text-align: center;
+      }
+    }
+  }
+  }
 }

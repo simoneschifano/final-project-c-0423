@@ -19,12 +19,6 @@ export const initialState = {
     seat: [],
   },
   paymentModalVisible: false,
-  methodCheckControl: {
-    CC: false,
-    PP: false,
-    GP: false,
-    AP: false,
-  },
 };
 
 export const initRegisteredUsers = {

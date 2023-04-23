@@ -1,6 +1,14 @@
 .CardSearch {
   position: relative;
   max-height: 300px;
+  transition: transform 0.35s;
+  &:hover {
+    transform: scale(1.2);
+    // opacity: 0.3;
+    .img {
+      opacity: 0.5;
+    }
+  }
 
   @include tablet {
     display: flex;
@@ -11,24 +19,15 @@
     width: 210px;
     height: 260px;
     border-radius: $border;
-    box-shadow: 1px 2px 4px rgba(211, 211, 211, 0.758);
-    // @include tablet {
-    //   width: 200px;
-    //   height: 260px;
-    // }
     cursor: pointer;
     transition: transform 0.35s;
-    &:hover {
-      transform: scale(1.2);
-      opacity: 0.5;
-    }
     @include tablet {
       transform: scale(1.05);
     }
   }
   a {
     display: none;
-    z-index: -5;
+    // z-index: -5;
     cursor: pointer;
     // @include tablet {
     //   z-index: inherit;
@@ -39,24 +38,24 @@
     a {
       display: block;
       position: absolute;
-      top: 135px;
-      left: 20px;
+      top: 120px;
+      left: 5px;
       padding: 10px 0;
+      background-color: $primary-color;
       text-align: center;
       border: 1px solid $primary-color;
       border-radius: $border;
       font-size: 0.9rem;
       width: 200px;
       text-decoration: none;
+      background: rgba(0, 0, 0, 0.616);
       color: inherit;
       height: 20px;
-
-      background: rgba(0, 0, 0, 0.616);
       &:hover {
-        border: 1px solid transparent;
-        color: $background;
-        background-color: $primary-color;
-      }
+				border: 1px solid transparent;
+				color: $background;
+				background-color: $primary-color;
+			}
     }
   }
 }

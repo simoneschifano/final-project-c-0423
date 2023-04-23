@@ -23,11 +23,13 @@ const PaymentModal = () => {
           Acquisto effettuato con successo!
         </h3>
         <p>Hai prenotato i posti:</p>
-        {state.ticketData.seat.map((seat) => (
-          <strong>
-            <p>{seat}</p>
-          </strong>
-        ))}
+        <div className={styles.seats}>
+          {state.ticketData.seat.filter(Boolean).map((seat, i) => (
+            <strong>
+              {i === 0 ? "" : <>&nbsp;- </>}{seat}
+            </strong>
+          ))}
+        </div>
         <p>
           per giorno <strong>{state.ticketData.date} </strong> alle ore{" "}
           <strong>{state.ticketData.hour}</strong> per lo spettacolo:

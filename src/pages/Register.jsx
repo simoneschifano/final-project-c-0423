@@ -27,40 +27,44 @@ const Register = () => {
     <div className={styles.RegisterPage}>
       <form className={styles.registerForm} onSubmit={onHandleSubmit}>
         <h3>Registrati</h3>
+        <div className={styles.anagrafe}>
+          <input className={styles.textInput}
+            required
+            type="text"
+            placeholder="Nome"
+            onChange={onHandleNomeInput} />
+          <input
+            className={styles.textInput}
+            required
+            type="text"
+            placeholder="Cognome"
+            onChange={onHandleCognomeInput}
+          />
+        </div>
         <input
           className={styles.textInput}
           type="text"
           placeholder="Nome Utente"
+          required
           onChange={onHandleUserInput}
         />
         <input
           className={styles.textInput}
+          required
           type="password"
           placeholder="Password"
           onChange={onHandlePassInput}
         />
         <input
           className={styles.textInput}
+          required
           type="email"
           placeholder="Email"
           onChange={onHandleEmailInput}
         />
-
-        <div className={styles.anagrafe}>
-          <input className={styles.textInput} type="text" placeholder="Nome" />
-          <input
-            className={styles.textInput}
-            type="text"
-            placeholder="Cognome"
-            onChange={onHandleNomeInput}
-          />
-        </div>
-        <input
-          type="submit"
-          value="Entra"
+        <button
           className={styles.Button}
-          onChange={onHandleEmailInput}
-        />
+          type="submit">Iscriviti</button>
       </form>
       <img className={styles.backgroundImage} src={image} alt="image" />
     </div>

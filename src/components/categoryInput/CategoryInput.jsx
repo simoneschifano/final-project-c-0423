@@ -9,12 +9,13 @@ const CategoryInput = ({ setCategoryId }) => {
     setCategoryId(() => e.target.value);
   };
   const { state, dispatch } = useContext(Context);
-
+  const genreList = JSON.parse(localStorage.getItem('genreList'));
   useEffect(() => {
-    GET("genre/movie/list").then((data) => {
-      const genreData = data.genres;
-      dispatch({ type: "SET_GENRE_LIST", payload: genreData });
-    });
+    if (!genreList)
+      GET("genre/movie/list").then((data) => {
+        const genreData = data.genres;
+        dispatch({ type: "SET_GENRE_LIST", payload: genreData });
+      });
   }, []);
 
   return (
@@ -33,7 +34,7 @@ const CategoryInput = ({ setCategoryId }) => {
             {genre.name}
           </option>
         ))} */}
-        {state.genreList.map((genre) => (
+        {(genreList || state.genreList).map((genre) => (
           <option className={styles.option} value={genre.id} key={genre.id}>
             {genre.name}
           </option>

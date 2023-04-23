@@ -54,11 +54,12 @@ const Navbar = () => {
 
         <div className={styles.icons_desktop}>
           <BiSearchAlt onClick={searchMenu} />
-          <AiOutlineUserDelete className={styles.userIcon} onClick={userMenu} />
+          {localStorage.getItem("auth") && (
+            <AiOutlineUserDelete className={styles.userIcon} onClick={userMenu} />)}
           {!localStorage.getItem("auth") && (
             <div className={styles.login_desktop}>
               <Link className={styles.Link} to={"/login"}>
-                Login o Registrati
+                Login/Registrati
               </Link>
             </div>
           )}

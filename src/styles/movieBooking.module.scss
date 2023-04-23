@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  min-height: 600px;
 
   @include desktop {
     flex-direction: row;
@@ -11,10 +12,12 @@
   }
   h3,
   p {
-    color: $secondary-color;
+    color: $text-color;
   }
   h2 {
     color: $primary-color;
+    padding: 0 20px;
+    text-align: center;
   }
 
   h3,
@@ -138,6 +141,7 @@
     display: flex;
     justify-content: center;
     gap: 20px;
+    color: $text-color;
     width: 100%;
     height: 20px;
 

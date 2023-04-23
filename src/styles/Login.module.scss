@@ -4,7 +4,9 @@
   align-items: center;
   text-align: center;
   color: $secondary-color;
-  height: 400px;
+  min-height: 350px;
+  
+  color: $text-color;
   gap: 20px;
   width: 100%;
   .forms {
@@ -20,6 +22,9 @@
     }
     .loginForm {
       width: 100%;
+      h3{
+        color: $primary-color;
+      }
       h4,
       p {
         margin: 0 0 10px;
@@ -38,23 +43,24 @@
       width: 100%;
 
       p {
-        font-weight: bold;
+        font-size: 0.8rem;
       }
     }
     .Button {
       @include def-button;
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
+      color: inherit;
     }
   }
+  
   .backgroundImage {
     display: none;
     width: 50%;
   }
 
   @include desktop {
+  .LoginPage{
+  min-height: 600px;
+  }
     .backgroundImage {
       display: block;
     }

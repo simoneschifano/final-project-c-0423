@@ -17,11 +17,13 @@ import Layout from "./components/layout";
 import "./index.css";
 import CardPromo from "./pages/CardPromo";
 import TopRated from "./pages/TopRated";
+import AboutUs from "./pages/AboutUs";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<Layout />}>
       <Route path="/" element={<Home />} />
+      <Route path="/about-us" element={<AboutUs />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/movie/:id" element={<MovieDetails />} />

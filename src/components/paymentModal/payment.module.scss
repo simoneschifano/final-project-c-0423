@@ -10,7 +10,7 @@
   background-color: rgba(0, 0, 0, 0.4);
 
   .modal_content {
-    background-color: #fefefe;
+    background-color: $background;
     margin: 10% auto;
     padding: 20px;
     border-radius: 2px;
@@ -34,8 +34,13 @@
 
   .close:hover,
   .close:focus {
-    color: #000;
+    color: $primary-color;
     text-decoration: none;
     cursor: pointer;
+  }
+
+  .seats{
+    display: flex;
+    justify-content: center;
   }
 }

@@ -13,6 +13,12 @@ const CardSearch = ({ data }) => {
     dispatch({ type: "SET_MODAL_CLOSE" });
   };
 
+  const onHandleBtnClick = () => {
+    dispatch({ type: "SET_MODAL_CLOSE" });
+    localStorage.getItem("auth")
+			? navigate(`/ticket/${data.id}/booking`)
+			: navigate("/login");
+  }
   return (
     <div className={styles.CardSearch}>
       <img
@@ -22,7 +28,7 @@ const CardSearch = ({ data }) => {
         onClick={onHandleClick}
       />
 
-      <Link to={`/ticket/${data.id}/booking`}>Acquista il biglietto</Link>
+      <a onClick={onHandleBtnClick}>Acquista il biglietto</a>
     </div>
   );
 };

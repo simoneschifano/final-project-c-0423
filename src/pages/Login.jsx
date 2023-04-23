@@ -45,12 +45,12 @@ const Login = () => {
             onChange={onHandlePassInput}
           />
           <p>Recupera la password</p>
-          <input type="submit" value="Entra" className={styles.Button} />
+          <button className={styles.Button}>Entra</button>
         </form>
         <div className={styles.registerSection}>
           <p>Non sei ancora registrato?</p>
-          <button className={styles.Button}>
-            <Link to={"/register"}>Registrati</Link>
+          <button className={styles.Button} onClick={() => navigate("/register")}>
+            Registrati
           </button>
         </div>
       </div>

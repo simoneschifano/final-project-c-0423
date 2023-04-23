@@ -40,9 +40,10 @@ const AccModal = () => {
         </div>
       ) : (
         <div className={styles.no_auth}>
-          <p>Hai già un account? </p> <p>Clicca qui per fare il login!</p>
+          <p>Hai già un account?</p>
+          <p>Clicca qui per effettuare l'accesso</p>
           <button className={styles.loginBtn} onClick={onHandleLoginRed}>
-            Login
+            Login/Registrati
           </button>
         </div>
       )}

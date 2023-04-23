@@ -6,6 +6,7 @@ $secondary-color: #ef9f30;
 $tertiary-color: #e7700d;
 $background: #0e1b19;
 $footer-color: #3a3a3a7d;
+$text-color: #f7f7f7;
 
 //bordi
 $border: 18px;
@@ -32,7 +33,7 @@ $roboto: "Roboto", sans-serif;
 
 @mixin def-input($width) {
   font-family: "Roboto", sans-serif;
-  border-radius: 18px;
+  border-radius: 6px;
   outline: none;
   width: $width;
   padding: 8px;
