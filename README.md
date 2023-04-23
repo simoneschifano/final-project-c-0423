@@ -1,5 +1,5 @@
 # MoviePlex 🍿🎞
-<img text-align="center" width="30%" src="./logo" />
+<img text-align="center" width="30%" src="./src/assets/logo.png" />
 
 
 # Descrizione 📖
