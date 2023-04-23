@@ -52,14 +52,23 @@ h1{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    p{
-      margin-top: 5px;
+    a{
+      text-decoration: none;
+      color: $primary-color;
+      &:hover{
+        color:$secondary-color
+      }
+      cursor: pointer;
+      p{
+        margin-top: 5px;
+      }
+      img{
+        object-fit: cover;
+        height: 40px;
+        filter: grayscale(1) invert(1);
+      }
     }
-    img{
-      object-fit: cover;
-      height: 40px;
-      filter: grayscale(1) invert(1);
-    }
+    
   }
 }
 }

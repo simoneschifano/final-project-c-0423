@@ -8,11 +8,11 @@ import linkedin from "..//assets/linkedin.png";
 import github from "../assets/github.png";
 
 const developer = [
-  { name: "Valentina Urzì", image: valentinaurzi, role: "Front-End Developer", linkedin: "Valentina Urzì", github: "ValentinaUrzì" },
-  { name: "Erica Candido", image: ericandido, role: "Front-End Developer", linkedin: "Erica Candido", github: "EricaCandido" },
-  { name: "Mattia Nini", image: mattianini, role: "Front-End Developer", linkedin: "Mattia Nini", github: "MattiaNini" },
-  { name: "Chiara Nicoletti", image: chiaranicoletti, role: "Front-End Developer", linkedin: "Chiara Nicoletti", github: "Kala Patel" },
-  { name: "Valerio La Venuta", image: valeriolavenuta, role: "Front-End Developer", linkedin: "Valerio La Venuta", github: "ValerioLV" }
+  { name: "Valentina Urzì", image: valentinaurzi, role: "Front-End Developer", linkedin: "valentina-urzì-0a3a86183", github: "ValentinaUrzi" },
+  { name: "Erica Candido", image: ericandido, role: "Front-End Developer", linkedin: "erica-candido-8085a4259", github: "EricaCandido" },
+  { name: "Mattia Nini", image: mattianini, role: "Front-End Developer", linkedin: "mattia-nini-64235223b", github: "MattiaNini" },
+  { name: "Chiara Nicoletti", image: chiaranicoletti, role: "Front-End Developer", linkedin: "chiara-nicoletti", github: "KalaPatel" },
+  { name: "Valerio La Venuta", image: valeriolavenuta, role: "Front-End Developer", linkedin: "valerio-la-venuta-103621258", github: "ValerioLV" }
 ]
 
 export default function AboutUs() {
@@ -28,14 +28,14 @@ export default function AboutUs() {
               <h4>{r.role}</h4>
             </div>
             <div className={styles.social}>
-              <div>
+              <a href={`https://www.linkedin.com/in/${r.linkedin}`}>
                 <img src={linkedin} alt="linkedin"></img>
-                <p>{r.linkedin}</p>
-              </div>
-              <div>
+                <p>{r.name}</p>
+              </a>
+              <a href={`https://github.com/${r.github}`}>
                 <img src={github} alt="github"></img>
                 <p>{r.github}</p>
-              </div>
+              </a>
             </div>
           </div>
         )}
