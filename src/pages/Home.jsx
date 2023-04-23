@@ -1,4 +1,4 @@
-import styles from "../styles/App.module.scss";
+import styles from "../styles/Home.module.scss";
 import CategoryInput from "../components/categoryInput/CategoryInput";
 import Carousel from "../components/carousel";
 import { useState } from "react";
